@@ -385,7 +385,31 @@ namespace TourWebApp.Controllers
             TempData["ThongBao"] = "🚫 Đã ngưng bán tour";
             return RedirectToAction("QuanLyTour");
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult XoaTour(int id)
+        {
+            if (!LaAdmin()) return NeuKhongPhaiAdmin();
 
+            var tour = _context.Tours
+                .Include(t => t.HinhTours)
+                .Include(t => t.TourGiaChiTiets)
+                .Include(t => t.LichKhoiHanhs)
+                .FirstOrDefault(t => t.IdTour == id);
+
+            if (tour == null) return NotFound();
+
+            _context.HinhTours.RemoveRange(tour.HinhTours);
+            _context.TourGiaChiTiets.RemoveRange(tour.TourGiaChiTiets);
+            _context.LichKhoiHanhs.RemoveRange(tour.LichKhoiHanhs);
+
+            _context.Tours.Remove(tour);
+            _context.SaveChanges();
+
+            TempData["ThongBao"] = "✅ Đã xóa tour";
+            return RedirectToAction("QuanLyTour");
+        }
 
         // MỞ BÁN LẠI
        [HttpPost]

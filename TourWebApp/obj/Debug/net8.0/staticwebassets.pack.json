@@ -125,6 +125,18 @@
       "PackagePath": "staticwebassets\\img\\blog\\639009265641103931_am-thuc-ho-tram.jpg"
     },
     {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\639015041029882964_5-dia-diem-du-lich-phu-quoc.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\639015041029882964_5-dia-diem-du-lich-phu-quoc.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\639015042013077157_hot-10-khu-vui-choi-o-da-lat-moi-toanh-nhat-dinh-nen-ghe-toi-5f3b73f7c5702.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\639015042013077157_hot-10-khu-vui-choi-o-da-lat-moi-toanh-nhat-dinh-nen-ghe-toi-5f3b73f7c5702.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\639015042937514017_Tu-A-z-Thong-Tin-Ve-Du-Lich-Theo-Doan-Ban-Nen-Biet.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\639015042937514017_Tu-A-z-Thong-Tin-Ve-Du-Lich-Theo-Doan-Ban-Nen-Biet.jpg"
+    },
+    {
       "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\blog1.jpg",
       "PackagePath": "staticwebassets\\img\\blog\\blog1.jpg"
     },
@@ -257,8 +269,16 @@
       "PackagePath": "staticwebassets\\img\\tours\\15a4ebe5-f068-4009-9fcf-d4694518f3c5.png"
     },
     {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\25e928a0-a43d-49ac-823b-f2c977b80257.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\25e928a0-a43d-49ac-823b-f2c977b80257.jpg"
+    },
+    {
       "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\43285582-69de-4389-8e29-709a1c90d69b.jpg",
       "PackagePath": "staticwebassets\\img\\tours\\43285582-69de-4389-8e29-709a1c90d69b.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\7f76885d-ccb1-447c-8e17-7d123e9a9375.jpeg",
+      "PackagePath": "staticwebassets\\img\\tours\\7f76885d-ccb1-447c-8e17-7d123e9a9375.jpeg"
     },
     {
       "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\88c1f4bf-672f-4272-b4e2-e99e756657d4.jpg",
@@ -287,6 +307,10 @@
     {
       "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\bt01_3.jpg",
       "PackagePath": "staticwebassets\\img\\tours\\bt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\c1ab0d2c-e7be-416c-b9a9-dbc6c902b82b.jpeg",
+      "PackagePath": "staticwebassets\\img\\tours\\c1ab0d2c-e7be-416c-b9a9-dbc6c902b82b.jpeg"
     },
     {
       "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\can-tho.jpg",

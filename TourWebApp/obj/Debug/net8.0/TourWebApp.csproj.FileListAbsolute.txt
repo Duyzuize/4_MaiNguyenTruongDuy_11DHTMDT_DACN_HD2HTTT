@@ -161,3 +161,4 @@ D:\DuLichDA\TourWebApp\obj\Debug\net8.0\refint\TourWebApp.dll
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.pdb
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.genruntimeconfig.cache
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\ref\TourWebApp.dll
+D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.sourcelink.json

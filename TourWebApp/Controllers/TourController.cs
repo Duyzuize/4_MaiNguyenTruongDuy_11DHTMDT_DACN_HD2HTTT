@@ -174,6 +174,9 @@ namespace TourWebApp.Controllers
 
             return View(tour);
         }
-
+        public IActionResult Index()
+        {
+            return RedirectToAction("TatCa");
+        }
     }
 }

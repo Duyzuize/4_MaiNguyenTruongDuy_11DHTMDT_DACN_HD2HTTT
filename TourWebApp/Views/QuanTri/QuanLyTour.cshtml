@@ -179,9 +179,15 @@
                             </form>
                         }
 
-                        <!-- 🗑 Xóa -->
-                        <form asp-action="XoaTour" method="post">
+                      <!-- 🗑 Xóa -->
+                        <form asp-action="XoaTour"
+                            asp-controller="QuanTri"
+                            method="post"
+                            style="display:inline;">
+                            @Html.AntiForgeryToken()
+
                             <input type="hidden" name="id" value="@t.IdTour" />
+
                             <button type="submit"
                                     class="btn-action delete"
                                     title="Xóa vĩnh viễn"
@@ -189,7 +195,6 @@
                                 <i class="fa fa-trash"></i>
                             </button>
                         </form>
-
                     </div>
                 </td>
 
