@@ -1,0 +1,225 @@
+@model List<TourWebApp.Data.Models.Tour>
+
+@{
+    ViewData["Title"] = "Tất cả tour";
+    var lichGanNhat = ViewBag.LichGanNhat as Dictionary<int, TourWebApp.Data.Models.LichKhoiHanh>;
+}
+<link rel="stylesheet" href="~/css/tour-filter.css" />
+
+<div class="text-end mb-3">
+    <button type="button" class="btn btn-outline-primary fw-bold rounded-pill"
+            data-bs-toggle="modal" data-bs-target="#filterModal">
+        🔍 Bộ lọc
+    </button>
+</div>
+
+<h2 class="title-all-tour text-center">Tất cả tour</h2>
+
+
+
+
+<!-- =================== LIST TOUR =================== -->
+<div class="row g-4">
+
+@foreach (var t in Model)
+{
+    var lich = (lichGanNhat != null && lichGanNhat.ContainsKey(t.IdTour))
+    ? lichGanNhat[t.IdTour]
+    : null;
+
+    string trangThai = "Không có lịch";
+    string ngay = "--";
+    string gio = "--";
+    string socho = "--";
+
+    if (lich != null)
+    {
+        ngay = lich.NgayKhoiHanh.ToString("dd/MM/yyyy");
+        gio = lich.GioKhoiHanh?.ToString("HH:mm") ?? "--";
+        socho = lich.SoChoConLai.ToString();
+
+        trangThai = lich.SoChoConLai <= 0 ? "Hết chỗ" : "Còn chỗ";
+    }
+
+    <div class="col-lg-3 col-md-6">
+
+        <div class="tour-card-modern shadow-lg rounded-4 overflow-hidden">
+
+            <!-- BADGE GIẢM GIÁ -->
+            @if (t.PhanTramGiam > 0)
+            {
+                <div class="position-absolute top-0 end-0 m-3 px-3 py-2 bg-warning rounded-pill text-white fw-bold">
+                    -@t.PhanTramGiam%
+                </div>
+            }
+
+            <!-- IMAGE -->
+            <div class="position-relative" style="height:240px; overflow:hidden;">
+                <img src="~/img/tours/@t.HinhAnh"
+                     class="w-100 h-100"
+                     style="object-fit:cover; border-radius:10px;" />
+            </div>
+
+            <!-- INFO OVERLAY (PHẦN CON MUỐN) -->
+            <div class="bg-light p-3 border-bottom">
+
+                <p class="mb-1"><b>Mã tour:</b> @t.MaTour</p>
+                <p class="mb-1"><b>Điểm đến:</b> @t.DiaDiem</p>
+
+                <p class="mb-1"><b>Ngày gần nhất:</b> @ngay</p>
+                <p class="mb-1"><b>Giờ khởi hành:</b> @gio</p>
+                <p class="mb-1"><b>Còn lại:</b> @socho chỗ</p>
+                <p class="mb-1"><b>Trạng thái:</b> @trangThai</p>
+
+                <p class="mb-0"><b>Phương tiện:</b> @t.PhuongTien</p>
+            </div>
+
+            <!-- BODY -->
+            <div class="p-3">
+
+                <h4 class="fw-bold">@t.TenTour</h4>
+
+                <div class="text-secondary mb-2">
+                    @t.ThoiGian
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="fw-bold text-danger fs-4">@string.Format("{0:N0} đ", t.GiaKhuyenMai)</span>
+                    <span class="text-decoration-line-through text-muted">@string.Format("{0:N0} đ", t.GiaGoc)</span>
+                </div>
+
+                <a asp-controller="Tour"
+                   asp-action="ChiTiet"
+                   asp-route-id="@t.IdTour"
+                   class="btn btn-primary w-100 fw-bold rounded-pill">
+                    Xem chi tiết
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+}
+
+</div>
+<!-- ================= MODAL FILTER ================= -->
+<div class="modal fade" id="filterModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content rounded-4">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">🔍 Bộ lọc nâng cao</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form method="get" id="filterForm">
+                <div class="modal-body">
+
+                    <div class="row g-3">
+
+                        <!-- ĐIỂM ĐẾN -->
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">Điểm đến</label>
+
+                            <input type="text" name="diadiem" id="diadiemInput"
+                                class="form-control"
+                                placeholder="VD: Đà Lạt, Nha Trang..."
+                                autocomplete="off"
+                                value="@Context.Request.Query["diadiem"]">
+
+                            <div class="autocomplete-box" id="goiYBox"></div>
+                        </div>
+
+                        <!-- SỐ NGÀY -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Số ngày</label>
+                            <input type="number" name="songay"
+                                   class="form-control"
+                                   placeholder="VD: 3"
+                                   value="@Context.Request.Query["songay"]"/>
+                        </div>
+
+                       
+                       <div class="col-12 mt-2">
+                            <label class="form-label fw-semibold">Khoảng giá</label>
+
+                            <div class="price-slider-container">
+                                <div class="slider-track"></div>
+
+                                <input type="range" class="range-min" min="0" max="20000000" step="50000" value="0">
+                                <input type="range" class="range-max" min="0" max="20000000" step="50000" value="20000000">
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-3">
+                                <div>
+                                    <span class="fw-bold">Từ:</span>
+                                    <input type="text" name="giamin" id="giaminInput"
+                                        class="form-control money-input"
+                                        style="width:150px;">
+                                </div>
+
+                                <div>
+                                    <span class="fw-bold">Đến:</span>
+                                    <input type="text" name="giamax" id="giamaxInput"
+                                        class="form-control money-input"
+                                        style="width:150px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SORT -->
+                        <div class="col-12 mt-3">
+                            <label class="form-label fw-semibold">Sắp xếp</label>
+                            <select name="sort" class="form-select">
+                                <option value="">-- Không sắp xếp --</option>
+                                <option value="gia_tang" selected="@(Context.Request.Query["sort"]=="gia_tang")">Giá tăng dần</option>
+                                <option value="gia_giam" selected="@(Context.Request.Query["sort"]=="gia_giam")">Giá giảm dần</option>
+                                <option value="ten" selected="@(Context.Request.Query["sort"]=="ten")">Tên A → Z</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary px-4 rounded-pill fw-bold">Áp dụng</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.TotalPages > 1)
+{
+    <div class="d-flex justify-content-center mt-5 gap-2">
+
+        @if (ViewBag.CurrentPage > 1)
+        {
+            <a class="btn btn-outline-primary rounded-pill"
+               href="?page=@(ViewBag.CurrentPage - 1)&diadiem=@Context.Request.Query["diadiem"]&songay=@Context.Request.Query["songay"]&giamin=@Context.Request.Query["giamin"]&giamax=@Context.Request.Query["giamax"]&sort=@Context.Request.Query["sort"]">
+                ←
+            </a>
+        }
+
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <a class="btn @(i == ViewBag.CurrentPage ? "btn-primary" : "btn-outline-primary") rounded-pill"
+               href="?page=@i&diadiem=@Context.Request.Query["diadiem"]&songay=@Context.Request.Query["songay"]&giamin=@Context.Request.Query["giamin"]&giamax=@Context.Request.Query["giamax"]&sort=@Context.Request.Query["sort"]">
+                @i
+            </a>
+        }
+
+        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+        {
+            <a class="btn btn-outline-primary rounded-pill"
+               href="?page=@(ViewBag.CurrentPage + 1)&diadiem=@Context.Request.Query["diadiem"]&songay=@Context.Request.Query["songay"]&giamin=@Context.Request.Query["giamin"]&giamax=@Context.Request.Query["giamax"]&sort=@Context.Request.Query["sort"]">
+                →
+            </a>
+        }
+
+    </div>
+}
+<script src="~/js/filter-slider.js"></script>

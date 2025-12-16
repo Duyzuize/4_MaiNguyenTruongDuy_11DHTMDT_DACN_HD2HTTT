@@ -1,0 +1,114 @@
+@model List<TourWebApp.Data.Models.BinhLuanTour>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="fw-bold mb-4">💬 Quản lý bình luận</h3>
+
+<table class="table table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th width="160">Người bình luận</th>
+            <th width="220">Bài viết</th>
+            <th>Nội dung</th>
+            <th width="120">Ngày</th>
+            <th width="120">Trạng thái</th>
+            <th width="200">Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var bl in Model)
+        {
+            <tr>
+                <!-- NGƯỜI BÌNH LUẬN -->
+                <td>
+                    <strong>@bl.Ten</strong><br />
+                    <small class="text-muted">@bl.Email</small>
+                </td>
+
+                <!-- BÀI VIẾT -->
+                <td>
+                    @if (bl.IdBaiVietNavigation != null)
+                    {
+                        <span>@bl.IdBaiVietNavigation.TieuDe</span>
+                    }
+                    else
+                    {
+                        <span class="text-muted fst-italic">Không thuộc bài viết</span>
+                    }
+                </td>
+
+                <!-- NỘI DUNG -->
+                <td>
+                    <div>@bl.NoiDung</div>
+
+                    @if (!string.IsNullOrEmpty(bl.PhanHoiAdm))
+                    {
+                        <div class="mt-2 p-2 rounded bg-light">
+                            <strong>Admin phản hồi:</strong><br />
+                            @bl.PhanHoiAdm
+                        </div>
+                    }
+                </td>
+
+                <!-- NGÀY -->
+                <td>
+                    <div>@bl.NgayBL.ToString("dd/MM/yyyy")</div>
+                    <div class="text-muted small">@bl.NgayBL.ToString("HH:mm")</div>
+                </td>
+
+
+                <!-- TRẠNG THÁI -->
+                <td>
+                    @if (bl.HienThi)
+                    {
+                        <span class="badge bg-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Ẩn</span>
+                    }
+                </td>
+
+                <!-- THAO TÁC -->
+                <td>
+                    <!-- ẨN / HIỆN -->
+                    <form asp-action="Toggle" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@bl.IdBL" />
+                        <button class="btn btn-warning btn-sm mb-1">
+                            Ẩn / Hiện
+                        </button>
+                    </form>
+
+                    <!-- PHẢN HỒI -->
+                    <button class="btn btn-primary btn-sm mb-1"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#reply-@bl.IdBL">
+                        Phản hồi
+                    </button>
+                </td>
+            </tr>
+
+            <!-- FORM PHẢN HỒI ADMIN -->
+            <tr class="collapse" id="reply-@bl.IdBL">
+                <td colspan="6">
+                    <form asp-action="PhanHoi" method="post">
+                        <input type="hidden" name="id" value="@bl.IdBL" />
+
+                        <textarea name="phanHoi"
+                                  class="form-control mb-2"
+                                  rows="3"
+                                  placeholder="Nhập phản hồi của admin..."
+                                  required></textarea>
+
+                        <button class="btn btn-success btn-sm">
+                            Gửi phản hồi
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

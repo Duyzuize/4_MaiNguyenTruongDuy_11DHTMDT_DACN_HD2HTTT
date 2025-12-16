@@ -1,0 +1,75 @@
+@model TourWebApp.Data.Models.DonDatTour
+
+<div class="container mt-4">
+
+    <div class="invoice-card shadow-lg p-4 rounded-4 mx-auto" style="max-width:700px; background:white;">
+
+        <!-- HEADER -->
+        <div class="text-center mb-4">
+            <h2 class="text-success fw-bold">
+                <i class="fa-solid fa-circle-check"></i> THANH TOÁN THÀNH CÔNG
+            </h2>
+            <p class="text-muted mb-1">Cảm ơn bạn đã tin tưởng HappyDuLich</p>
+
+            <div class="booking-box mt-3 p-2 px-3 rounded-3 d-inline-block"
+                 style="background:#F1F8FF; border:1px solid #B6D9FF;">
+                <strong>Mã Booking:</strong> 
+                <span class="text-primary fw-bold">@Model.MaBooking</span>
+            </div>
+        </div>
+
+        <hr />
+
+        <!-- BODY -->
+        <h5 class="fw-bold mb-3 text-primary">Thông tin đơn hàng</h5>
+
+        <table class="table table-borderless mb-4">
+            <tbody>
+                <tr>
+                    <th class="text-secondary" style="width:180px;">Tên tour:</th>
+                    <td class="fw-semibold">@Model.IdTourNavigation.TenTour</td>
+                </tr>
+
+                <tr>
+                    <th class="text-secondary">Ngày khởi hành:</th>
+                    <td>@Model.IdLichNavigation.NgayKhoiHanh.ToString("dd/MM/yyyy")</td>
+                </tr>
+
+                <tr>
+                    <th class="text-secondary">Số lượng khách:</th>
+                    <td>
+                        @Model.NguoiLon người lớn,
+                        @Model.TreEm trẻ em,
+                        @Model.TreNho em bé
+                    </td>
+                </tr>
+
+                <tr class="table-active">
+                    <th class="text-secondary">Tổng tiền:</th>
+                    <td class="fw-bold fs-5 text-danger">
+                        @Model.TongTien.ToString("N0") đ
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="text-secondary">Thanh toán lúc:</th>
+                    <td>@Model.NgayThanhToan?.ToString("HH:mm dd/MM/yyyy")</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr />
+
+        <!-- FOOTER -->
+        <div class="text-center mt-3">
+            <p class="text-muted mb-1">Thông tin xác nhận đã được gửi qua Email/SĐT của bạn.</p>
+            <p class="mb-2">Cần hỗ trợ? Gọi ngay <strong>0123 456 789</strong></p>
+
+            <a href="/" class="btn btn-primary rounded-pill px-5 py-2 fw-bold mt-2">
+                Về trang chủ
+            </a>
+        </div>
+
+    </div>
+
+</div>

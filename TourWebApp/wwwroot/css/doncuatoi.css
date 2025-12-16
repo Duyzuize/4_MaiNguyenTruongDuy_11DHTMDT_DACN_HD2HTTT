@@ -1,0 +1,183 @@
+/* ================== KHUNG ĐƠN ================== */
+.my-orders {
+    margin-top: 40px;
+}
+
+.order-item {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 18px;
+    background: #fafafa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* ===== TRẠNG THÁI BADGE ===== */
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.ChoThanhToan {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.ThanhToanThanhCong {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.DaHuy {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ================== TIMELINE SHOPEE ================== */
+.order-timeline {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+    min-width: 80px;
+    position: relative;
+}
+
+.step .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 5px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Hoàn thành */
+.step.done .circle {
+    background: linear-gradient(135deg, #00c853, #28a745);
+    border-color: #28a745;
+    box-shadow: 0 0 0 4px rgba(40,167,69,0.15);
+}
+
+.step.done .label {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Hủy */
+.step.cancel .circle {
+    background: linear-gradient(135deg, #ff5252, #dc3545);
+    border-color: #dc3545;
+    box-shadow: 0 0 0 4px rgba(220,53,69,0.15);
+}
+
+.step.cancel .label {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.line {
+    flex: 1;
+    height: 3px;
+    background: #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation chạy */
+.order-timeline.animated .line::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #28a745, #7CFFAF);
+    animation: flow 2s ease infinite;
+}
+
+@keyframes flow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ================== BUTTON ================== */
+.order-actions {
+    margin-top: 10px;
+}
+
+.btn-view, .btn-extend {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: 0.2s;
+}
+
+.btn-view {
+    background: #0d6efd;
+    color: white;
+}
+
+.btn-view:hover {
+    background: #0b5ed7;
+}
+
+.btn-extend {
+    background: #ffc107;
+    color: #000;
+}
+
+.btn-extend:hover {
+    background: #e0a800;
+}
+.tooltip-box {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 240px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 99;
+}
+
+.tooltip-box:hover .tooltip-content {
+    display: block;
+}
+
+/* Hiệu ứng bay nhẹ */
+.tooltip-content {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

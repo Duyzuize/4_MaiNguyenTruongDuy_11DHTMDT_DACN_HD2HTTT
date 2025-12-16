@@ -1,0 +1,81 @@
+.profile-wrapper {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 25px;
+    width: 480px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.profile-card h3 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.profile-card p {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.readonly-input {
+    background: #f3f3f3;
+    cursor: not-allowed;
+}
+
+.btn-save {
+    width: 100%;
+    border: none;
+    background: linear-gradient(90deg,#4b6cff,#6a5bff);
+    color: #fff;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+}
+
+.profile-success {
+    background: #e9ffea;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    color: #0a7a0a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}

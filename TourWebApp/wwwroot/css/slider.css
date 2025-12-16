@@ -1,0 +1,99 @@
+/* ===========================
+   HERO SLIDER WRAPPER
+=========================== */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 480px;
+    overflow: hidden;
+}
+
+/* ===========================
+   SLIDES
+=========================== */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* layer tối để chữ nổi bật */
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.65));
+}
+
+/* ===========================
+   TEXT
+=========================== */
+.hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    z-index: 10;
+    color: #fff;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.btn-cta {
+    margin-top: 20px;
+}
+
+/* ===========================
+   DOTS
+=========================== */
+.slider-dots {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+.slider-dots span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #ffffff90;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-dots span.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* Mobile */
+@media(max-width: 576px) {
+    .hero-title { font-size: 2rem; }
+    .hero-desc { font-size: 1rem; }
+}

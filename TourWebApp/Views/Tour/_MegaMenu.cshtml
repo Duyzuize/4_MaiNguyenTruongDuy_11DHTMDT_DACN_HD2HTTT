@@ -1,0 +1,26 @@
+@model List<TourWebApp.Data.Models.LoaiTour>
+
+<div class="dropdown-menu mega-menu p-4 shadow-lg">
+
+    <div class="row">
+
+        @foreach (var loai in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <a class="mega-item" href="/Tour/TheoLoai/@loai.IdLoaiTour">
+                    <strong>@loai.TenLoai</strong>
+                </a>
+                <div class="mega-desc text-muted small">
+                    @loai.MoTa
+                </div>
+            </div>
+        }
+    </div>
+
+    <hr />
+
+    <a href="/Tour/TatCa" class="btn btn-primary w-100 mt-2">
+        Xem tất cả tour
+    </a>
+
+</div>

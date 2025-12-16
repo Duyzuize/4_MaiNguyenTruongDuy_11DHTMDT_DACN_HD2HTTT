@@ -1,0 +1,85 @@
+@model TourWebApp.Data.Models.Tour
+@{
+    ViewData["Title"] = "Chi tiết tour";
+    Layout = "_LayoutAdmin";
+}
+
+            <div class="container-fluid">
+                <h3 class="mb-3">Chi tiết tour</h3>
+
+                <div class="card shadow-sm p-4">
+                    <div class="row">
+                       <div class="col-md-4 text-center">
+                            @if (Model.HinhTours != null && Model.HinhTours.Any())
+                            {
+                                foreach (var hinh in Model.HinhTours.OrderBy(x => x.ThuTu))
+                                {
+                                    <img src="@Url.Content("~/img/tours/" + hinh.UrlHinh)"
+                                        class="img-fluid rounded shadow mb-3"
+                                        style="max-height:220px; object-fit:cover;"
+                                        alt="@hinh.MoTa" />
+                                }
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/img/no-image.png")"
+                                    class="img-fluid rounded shadow"
+                                    style="max-height:220px; object-fit:cover;" />
+                            }
+                        </div>
+
+
+            <div class="col-md-8">
+                <h4 class="fw-bold">@Model.TenTour</h4>
+                <p><strong>Loại tour:</strong>@Model.IdLoaiTourNavigation?.TenLoai</p>
+                <p><strong>Địa điểm:</strong> @Model.DiaDiem</p>
+                <p><strong>Thời gian:</strong> @Model.ThoiGian</p>
+                <p><strong>Phương tiện:</strong> 
+                    @(string.IsNullOrWhiteSpace(Model.PhuongTien) ? "Chưa cập nhật" : Model.PhuongTien)
+                </p>
+
+                <p>
+                    <strong>Giá gốc:</strong>
+                    <span class="text-secondary text-decoration-line-through">
+                        @String.Format("{0:N0}đ", Model.GiaGoc)
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Giá khuyến mãi:</strong>
+                    <span class="text-danger fw-bold">
+                        @String.Format("{0:N0}đ", Model.GiaKhuyenMai)
+                    </span>
+                </p>
+
+                <p><strong>% Giảm:</strong> @Model.PhanTramGiam %</p>
+
+                <p><strong>Lượt xem:</strong> @Model.LuotXem</p>
+                <p><strong>Đã đặt:</strong> @Model.SoNguoiDaDat người</p>
+                <p><strong>Trạng thái:</strong>
+                    @if (Model.TrangThai)
+                    {
+                        <span class="badge bg-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Ẩn</span>
+                    }
+                </p>
+            </div>
+        </div>
+
+        <hr />
+
+        <h5>Mô tả tour</h5>
+        <div class="bg-light p-3 rounded">
+            @Html.Raw(Model.MoTa)
+        </div>
+
+        <div class="mt-4">
+            <a asp-action="QuanLyTour" class="btn btn-secondary">
+                Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>

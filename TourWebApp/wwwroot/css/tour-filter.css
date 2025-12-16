@@ -1,0 +1,124 @@
+/* ====================== FILTER BOX ====================== */
+
+.filter-box-modern {
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 1rem;
+    padding: 20px;
+}
+
+.filter-box-modern input,
+.filter-box-modern select {
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d7;
+    font-size: 14px;
+}
+
+.filter-box-modern label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+/* ====================== MODAL ====================== */
+
+#filterModal .modal-content {
+    border-radius: 20px;
+    padding: 10px 5px;
+}
+
+#filterModal .modal-header {
+    border-bottom: none;
+}
+
+#filterModal .modal-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#filterModal .modal-footer {
+    border-top: none;
+}
+
+/* ====================== PRICE SLIDER ====================== */
+
+.price-slider-container {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    margin-top: 10px;
+}
+
+.slider-track {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.price-slider-container input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: none;
+    pointer-events: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0d6efd;
+    pointer-events: all;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.autocomplete-box {
+    position: absolute;
+    background: white;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 2px;
+    display: none;
+    z-index: 1000;
+}
+
+.autocomplete-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.autocomplete-item:hover {
+    background: #f1f1f1;
+}
+
+
+
+/* ====================== MOBILE ====================== */
+
+@media (max-width: 576px) {
+    .filter-box-modern input,
+    .filter-box-modern select {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .price-range-wrapper input[type="range"]::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+    }
+
+    #filterModal .modal-content {
+        padding: 10px;
+        border-radius: 15px;
+    }
+}

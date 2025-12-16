@@ -1,0 +1,55 @@
+@model List<TourWebApp.Data.Models.BaiViet>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="fw-bold mb-4">📚 Quản lý bài viết</h3>
+
+<a asp-action="Create" class="btn btn-success mb-3">
+    ➕ Tạo bài viết
+</a>
+
+<table class="table table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Chuyên mục</th>
+            <th>Ngày đăng</th>
+            <th>Trạng thái</th>
+            <th width="160">Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               <td>@item.TieuDe</td>
+                <td>@item.IdCMNavigation.TenCM</td>
+                <td>@item.NgayDang.ToString("dd/MM/yyyy")</td>
+
+                <!-- ✅ CỘT TRẠNG THÁI -->
+                <td>
+                    @if (item.TrangThai)
+                    {
+                        <span class="badge bg-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Ẩn</span>
+                    }
+                </td>
+
+                <!-- ✅ CỘT THAO TÁC -->
+                <td>
+                    <form asp-action="ToggleTrangThai" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@item.IdBaiViet" />
+                        <button class="btn btn-warning btn-sm">
+                            Ẩn / Hiện
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

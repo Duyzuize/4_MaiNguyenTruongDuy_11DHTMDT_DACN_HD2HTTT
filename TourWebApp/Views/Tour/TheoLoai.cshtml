@@ -1,0 +1,105 @@
+@model List<TourWebApp.Data.Models.Tour>
+
+@{
+    string title = ViewBag.TenLoai ?? "Tour";
+    ViewData["Title"] = title;
+
+    var lichGanNhat = ViewBag.LichGanNhat as Dictionary<int, TourWebApp.Data.Models.LichKhoiHanh>;
+}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4 text-uppercase fw-bold">@title</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning text-center">
+            Không có tour nào thuộc loại này.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+
+        @foreach (var t in Model)
+        {
+            var lich = (lichGanNhat != null && lichGanNhat.ContainsKey(t.IdTour))
+                ? lichGanNhat[t.IdTour]
+                : null;
+
+            string ngay = "--";
+            string gio = "--";
+            string socho = "--";
+            string trangThai = "Không có lịch";
+
+            if (lich != null)
+            {
+                ngay = lich.NgayKhoiHanh.ToString("dd/MM/yyyy");
+                gio = lich.GioKhoiHanh?.ToString("HH:mm") ?? "--";
+                socho = lich.SoChoConLai.ToString();
+                trangThai = lich.SoChoConLai <= 0 ? "Hết chỗ" : "Còn chỗ";
+            }
+
+            <div class="col-md-4">
+
+                <div class="tour-card-modern shadow-lg rounded-4 overflow-hidden">
+
+                    <!-- BADGE GIẢM GIÁ -->
+                    @if (t.PhanTramGiam > 0)
+                    {
+                        <div class="position-absolute top-0 end-0 m-3 px-3 py-2 bg-warning rounded-pill text-white fw-bold">
+                            -@t.PhanTramGiam%
+                        </div>
+                    }
+
+                    <!-- IMAGE -->
+                    <div class="position-relative" style="height:240px; overflow:hidden;">
+                        <img src="~/img/tours/@t.HinhAnh"
+                             class="w-100 h-100"
+                             style="object-fit:cover;" />
+                    </div>
+
+                    <!-- INFO OVERLAY TRỰC TIẾP -->
+                    <div class="bg-light p-3 border-bottom">
+
+                        <p class="mb-1"><b>Mã tour:</b> @t.MaTour</p>
+                        <p class="mb-1"><b>Điểm đến:</b> @t.DiaDiem</p>
+                        <p class="mb-1"><b>Ngày gần nhất:</b> @ngay</p>
+                        <p class="mb-1"><b>Giờ khởi hành:</b> @gio</p>
+                        <p class="mb-1"><b>Còn lại:</b> @socho chỗ</p>
+                        <p class="mb-1"><b>Trạng thái:</b> @trangThai</p>
+                        <p class="mb-0"><b>Phương tiện:</b> @t.PhuongTien</p>
+
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="p-3">
+
+                        <h4 class="fw-bold">@t.TenTour</h4>
+
+                        <div class="text-secondary mb-2">
+                            @t.ThoiGian
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="fw-bold text-danger fs-4">@string.Format("{0:N0} đ", t.GiaKhuyenMai)</span>
+                            <span class="text-decoration-line-through text-muted">@string.Format("{0:N0} đ", t.GiaGoc)</span>
+                        </div>
+
+                        <a asp-controller="Tour"
+                           asp-action="ChiTiet"
+                           asp-route-id="@t.IdTour"
+                           class="btn btn-primary w-100 fw-bold rounded-pill">
+                            Xem chi tiết
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+        </div>
+    }
+</div>

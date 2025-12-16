@@ -1,0 +1,41 @@
+@model TourWebApp.Data.Models.ChuyenMucBaiViet
+
+@{
+    ViewData["Title"] = "Thêm chuyên mục";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="fw-bold mb-4">
+    <i class="fa-solid fa-plus me-2"></i> Thêm chuyên mục bài viết
+</h3>
+
+<form asp-action="Create" method="post" class="card p-4 shadow-sm">
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Tên chuyên mục</label>
+        <input asp-for="TenCM" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Mô tả</label>
+        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="TrangThai" class="form-check-input" checked />
+        <label class="form-check-label">
+            Hiển thị chuyên mục
+        </label>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-save"></i> Lưu
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary ms-2">
+            Quay lại
+        </a>
+    </div>
+
+</form>

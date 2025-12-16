@@ -1,0 +1,80 @@
+/* GỌN BẢNG QUẢN LÝ TOUR */
+.table td, .table th {
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* Cắt chữ dài bằng ... */
+.text-ellipsis {
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Nhóm nút thao tác đẹp */
+.btn-group-action {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+/* Badge trạng thái đẹp hơn */
+.badge-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.action-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Style chung cho nút */
+.btn-action {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover hiệu ứng */
+.btn-action:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Màu từng loại nút */
+.btn-action.view {
+    background: #27ae60;
+}
+
+.btn-action.edit {
+    background: #2980b9;
+}
+
+.btn-action.lock {
+    background: #f39c12;
+}
+
+.btn-action.unlock {
+    background: #16a085;
+}
+
+.btn-action.delete {
+    background: #e74c3c;
+}
+
+/* Icon giữa */
+.btn-action i {
+    font-size: 14px;
+}

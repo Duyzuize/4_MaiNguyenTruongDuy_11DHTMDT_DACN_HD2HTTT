@@ -1,0 +1,87 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Quản trị - HappyTrip</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<div class="admin-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <span class="logo-circle">H</span>
+            <span class="logo-text">HappyTrip Admin</span>
+        </div>
+
+        <ul class="admin-menu">
+            <li><a href="/QuanTri/Dashboard"><i class="fa-solid fa-chart-line me-2"></i> Dashboard</a></li>
+
+            <li class="menu-title">Quản lý</li>
+            <li class="menu-title">Cổng thông tin du lịch</li>
+            <li><a href="/QuanLyChuyenMuc/Index">
+                <i class="fa-solid fa-folder-tree me-2"></i> Chuyên mục bài viết
+            </a></li>
+            <li><a href="/QuanLyBaiViet/Index">
+                <i class="fa-solid fa-newspaper me-2"></i> Bài viết du lịch
+            </a></li>
+            <li><a href="/QuanLyBinhLuan/Index">
+                <i class="fa-solid fa-comments me-2"></i> Bình luận bài viết
+            </a></li>
+
+            <li><a href="/QuanTri/QuanLyTour"><i class="fa-solid fa-map-location-dot me-2"></i> Quản lý tour</a></li>
+            <li>
+                <a href="/QuanTri/DanhSachLich">
+                    <i class="fa-solid fa-calendar-days me-2"></i> Quản lý lịch khởi hành
+                </a>
+            </li>
+            <li><a href="/QuanLyDon/Index">
+                <i class="fa-solid fa-file-invoice-dollar me-2"></i> Đơn đặt tour
+            </a></li>
+
+            <li><a href="/QuanTri/NguoiDung"><i class="fa-solid fa-users me-2"></i> Tài khoản</a></li>
+
+            <li class="menu-title">Khác</li>
+            <li><a href="/TaiKhoan/DangXuat"><i class="fa-solid fa-right-from-bracket me-2"></i> Đăng xuất</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="admin-main">
+
+        <!-- TOPBAR -->
+        <header class="admin-topbar">
+            <div class="topbar-title">
+                Xin chào, <strong>@Context.Session.GetString("HoTen")</strong>
+            </div>
+        </header>
+
+        <!-- NỘI DUNG -->
+        <main class="admin-content">
+            @RenderBody()
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="admin-footer">
+            © @DateTime.Now.Year - HappyTrip Admin Panel
+        </footer>
+    </div>
+
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/admin.js" asp-append-version="true"></script>
+</body>
+
+
+</html>

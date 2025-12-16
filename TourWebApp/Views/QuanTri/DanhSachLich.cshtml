@@ -1,0 +1,215 @@
+@model List<TourWebApp.Data.Models.LichKhoiHanh>
+@{
+    ViewData["Title"] = "Quản lý lịch khởi hành";
+   Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+
+<h3 class="mb-3"><i class="fa fa-calendar"></i> Quản lý lịch khởi hành</h3>
+
+@if (TempData["ThongBao"] != null)
+{
+    <div class="alert alert-success">@TempData["ThongBao"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<!-- ================= FORM THÊM LỊCH ================= -->
+<div class="card p-4 mb-4 shadow-sm">
+    <h5 class="mb-3">➕ Thêm lịch khởi hành mới</h5>
+
+    <form asp-action="ThemLich" method="post">
+        <div class="row g-3">
+
+            <!-- CHỌN TOUR -->
+            <div class="col-md-4">
+                <label>🗺 Tour</label>
+                <select name="IdTour" class="form-select" required>
+                    <option value="">-- Chọn tour --</option>
+                    @foreach (var t in ViewBag.Tours)
+                    {
+                        <option value="@t.IdTour">@t.TenTour</option>
+                    }
+                </select>
+            </div>
+
+            <!-- NGÀY -->
+            <div class="col-md-4">
+                <label>📅 Ngày khởi hành</label>
+                <input id="ngayThem" type="text" name="NgayKhoiHanh"
+                       class="form-control" required />
+            </div>
+
+            <!-- GIỜ -->
+            <div class="col-md-4">
+                <label>🕒 Giờ khởi hành</label>
+                <input id="gioThem" type="text" name="GioKhoiHanh"
+                       class="form-control" required />
+            </div>
+
+            <!-- SỐ CHỖ -->
+            <div class="col-md-4">
+                <label>👥 Số chỗ tối đa</label>
+                <input type="number" name="SoChoToiDa"
+                       class="form-control" min="1" required />
+            </div>
+
+        </div>
+
+        <button class="btn btn-success mt-3">
+            <i class="fa fa-plus"></i> Thêm lịch
+        </button>
+    </form>
+</div>
+
+<!-- ================= BẢNG DANH SÁCH ================= -->
+<table class="table table-bordered align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Tour</th>
+            <th>Ngày</th>
+            <th>Giờ</th>
+            <th>Chỗ tối đa</th>
+            <th>Chỗ còn</th>
+            <th>Trạng thái</th>
+            <th width="120">Hành động</th>
+        </tr>
+    </thead>
+
+    <tbody>
+@foreach (var item in Model)
+{
+    var phanTram = (double)item.SoChoConLai / item.SoChoToiDa * 100;
+
+    string mau = phanTram == 0 ? "bg-danger" :
+                 phanTram <= 50 ? "bg-warning text-dark" :
+                 "bg-success";
+
+    <tr>
+        <td>@item.IdTourNavigation?.TenTour</td>
+        <td>@item.NgayKhoiHanh</td>
+        <td>@item.GioKhoiHanh</td>
+        <td>@item.SoChoToiDa</td>
+
+        <!-- CHỖ CÒN + MÀU THEO % -->
+        <td>
+            <span class="badge @mau">
+                @item.SoChoConLai / @item.SoChoToiDa
+            </span>
+        </td>
+
+        <td>
+            @(item.SoChoConLai > 0 ? "Còn chỗ" : "Hết chỗ")
+        </td>
+
+        <td class="text-center">
+
+           @{
+             bool daCoDon = item.DonDatTours != null && item.DonDatTours.Any(d => d.TrangThai != "DaHuy");
+            }
+
+            @if (daCoDon)
+            {
+                <!-- ĐÃ CÓ ĐƠN => KHÓA SỬA -->
+                <button class="btn btn-secondary btn-sm" disabled
+                        title="Đã có người đặt - không thể sửa">
+                    <i class="fa fa-lock"></i>
+                </button>
+            }
+            else
+            {
+                <!-- CHƯA CÓ ĐƠN => CHO PHÉP SỬA -->
+                <button type="button"
+                        class="btn btn-warning btn-sm me-1"
+                        onclick="moModalSua(@item.IdLich,
+                        '@item.NgayKhoiHanh.ToString("yyyy-MM-dd")',
+                        '@(item.GioKhoiHanh.HasValue ? item.GioKhoiHanh.Value.ToString("HH:mm") : "")',
+                        @item.SoChoToiDa)">
+                    <i class="fa fa-pen"></i>
+                </button>
+            }
+
+            <!-- XÓA -->
+            <form asp-action="XoaLich" method="post" style="display:inline-block">
+                <input type="hidden" name="id" value="@item.IdLich" />
+                <button type="submit"
+                        class="btn btn-danger btn-sm"
+                        onclick="return confirm('Xóa lịch này?')">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </form>
+
+        </td>
+    </tr>
+}
+</tbody>
+
+</table>
+
+<!-- ================= MODAL SỬA ================= -->
+<div class="modal fade" id="modalSuaLich" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form asp-action="SuaLich" asp-controller="QuanTri" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="modal-header">
+                    <h5 class="modal-title">✏️ Sửa lịch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- ID lịch cần sửa -->
+                    <input type="hidden" id="editId" name="IdLich" />
+
+                    <div class="mb-3">
+                        <label>📅 Ngày</label>
+                        <input id="ngaySua"
+                               name="NgayKhoiHanh"
+                               type="date"
+                               class="form-control"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>🕒 Giờ</label>
+                        <input id="gioSua"
+                               name="GioKhoiHanh"
+                               type="time"
+                               class="form-control"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>👥 Số chỗ tối đa</label>
+                        <input id="soChoSua"
+                               name="SoChoToiDa"
+                               type="number"
+                               min="1"
+                               class="form-control"
+                               required />
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i> Lưu
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ================= THƯ VIỆN ================= -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="~/js/lich-khoi-hanh.js"></script>

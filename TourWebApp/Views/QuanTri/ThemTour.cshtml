@@ -1,0 +1,148 @@
+@model TourWebApp.Data.Models.Tour
+@{
+    Layout = "_LayoutAdmin";
+    var loaiTours = ViewBag.LoaiTours as List<TourWebApp.Data.Models.LoaiTour> ?? new();
+}
+
+<div class="container-fluid">
+    <h4 class="mb-3 fw-bold">➕ Thêm tour mới</h4>
+
+    @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.Any(v => v.Errors.Count > 0))
+    {
+        <div class="alert alert-danger">
+            @foreach (var item in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>❌ @item.ErrorMessage</div>
+            }
+        </div>
+    }
+
+   <form asp-action="ThemTour" method="post">
+    @Html.AntiForgeryToken()
+
+        <div class="card shadow-sm p-4">
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Mã tour</label>
+                    <input asp-for="MaTour" class="form-control" />
+                </div>
+
+               <div class="col-md-6">
+                    <label class="form-label">Tên tour</label>
+                    <input asp-for="TenTour" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Loại tour</label>
+                    <select asp-for="IdLoaiTour" class="form-select" required>
+                        <option value="">-- Chọn loại tour --</option>
+                        @foreach (var item in loaiTours)
+                        {
+                            <option value="@item.IdLoaiTour">@item.TenLoai</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Địa điểm</label>
+                    <input asp-for="DiaDiem" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Thời gian</label>
+                    <input asp-for="ThoiGian" class="form-control" placeholder="VD: 3N2Đ" />
+                </div>
+
+               <div class="col-md-6">
+                    <label class="form-label fw-semibold">Phương tiện</label>
+                    <select asp-for="PhuongTien" class="form-select" required>
+                        <option value="">-- Chọn phương tiện --</option>
+                        <option value="Xe du lịch">🚌 Xe du lịch</option>
+                        <option value="Máy bay">✈️ Máy bay</option>
+                        <option value="Tàu hỏa">🚆 Tàu hỏa</option>
+                        <option value="Ca nô">🚤 Ca nô</option>
+                        <option value="Xe máy">🏍 Xe máy</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Giá gốc</label>
+                    <input asp-for="GiaGoc" type="number" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">% Giảm</label>
+                    <input asp-for="PhanTramGiam" class="form-control" id="phanTramGiam" />
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Giá khuyến mãi</label>
+                    <input asp-for="GiaKhuyenMai" class="form-control" id="giaKhuyenMai" readonly />
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Mô tả</label>
+                    <textarea asp-for="MoTa" rows="4" class="form-control"></textarea>
+                </div>
+
+                <h5 class="fw-bold text-primary mt-4 mb-2">💰 Giá tour theo đối tượng</h5>
+
+                <div class="row">
+
+                    <!-- GIÁ NGƯỜI LỚN -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">Giá người lớn *</label>
+                        <input type="number" id="giaNguoiLon" name="GiaNguoiLon"
+                            class="form-control" min="0" required />
+                    </div>
+
+                    <!-- % GIẢM TRẺ EM -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">% giảm cho trẻ em</label>
+                        <input type="range" id="phanTramTreEm" name="PhanTramTreEm" 
+                            min="0" max="100" value="50" class="form-range">
+                        <span id="percentLabel" class="fw-bold text-primary">50%</span>
+                    </div>
+
+                    <!-- GIÁ TRẺ EM (TỰ ĐỘNG TÍNH) -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">Giá trẻ em (tự tính)</label>
+                        <input id="giaTreEmPreview" class="form-control" readonly />
+                    </div>
+
+                    <!-- EM BÉ CÓ PHÍ HAY MIỄN PHÍ -->
+                    <div class="col-md-4 mt-3">
+                        <label class="form-label fw-semibold">Em bé</label>
+                        <select id="coPhiEmBe" name="CoPhiEmBe" class="form-select">
+                            <option value="0">Miễn phí</option>
+                            <option value="1">Có tính phí</option>
+                        </select>
+                    </div>
+
+                    <!-- GIÁ EM BÉ -->
+                    <div class="col-md-4 mt-3">
+                        <label class="form-label fw-semibold">Giá em bé</label>
+                        <input id="giaEmBe" name="GiaEmBe" 
+                            type="number" class="form-control" 
+                            value="0" min="0" readonly />
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mt-4 text-end">
+                <a asp-action="QuanLyTour" class="btn btn-secondary">Quay lại</a>
+                <button type="submit" class="btn btn-primary px-4">
+                    💾 Lưu tour
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <script src="~/js/tinh-gia-tour.js"></script>
+    <script src="~/js/gia-tour.js"></script>
+

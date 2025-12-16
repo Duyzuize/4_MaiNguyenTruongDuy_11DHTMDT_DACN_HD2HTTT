@@ -1,0 +1,53 @@
+@model TourWebApp.Data.Models.DonDatTour
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="fw-bold mb-4">📄 Chi tiết đơn – @Model.MaBooking</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card p-3 mb-3">
+            <h5>🧍 Khách hàng</h5>
+            <p><strong>@Model.IdTaiKhoanNavigation.HoTen</strong></p>
+            <p>@Model.IdTaiKhoanNavigation.Email</p>
+            <p>@Model.IdTaiKhoanNavigation.SoDienThoai</p>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <h5>🧭 Thông tin tour</h5>
+            <p><strong>@Model.IdTourNavigation.TenTour</strong></p>
+            <p>Ngày khởi hành: @Model.IdLichNavigation.NgayKhoiHanh.ToString("dd/MM/yyyy")</p>
+            <p>Người lớn: @Model.NguoiLon | Trẻ em: @Model.TreEm</p>
+            <p class="fw-bold text-primary">Tổng tiền: @String.Format("{0:#,0}đ", Model.TongTien)</p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card p-3">
+
+            <h5>⚙ Xử lý đơn</h5>
+            <a class="btn btn-danger"
+                asp-controller="QuanTri"
+                asp-action="ExportHoaDon"
+                asp-route-idDon="@Model.IdDon">
+                <i class="fa-solid fa-file-pdf"></i> Xuất PDF
+            </a>
+
+            <p>Trạng thái hiện tại:
+              @if (Model.DaThanhToan)
+                {
+                    <span class="badge bg-success">Đã thanh toán</span>
+                }
+                else if (Model.HanThanhToan != null && Model.HanThanhToan < DateTime.Now)
+                {
+                    <span class="badge bg-secondary">Đơn đã hết hạn thanh toán</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark">Chờ thanh toán</span>
+                }
+            </p>
+        </div>
+    </div>
+</div>

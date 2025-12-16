@@ -1,0 +1,125 @@
+@model TourWebApp.Data.Models.BaiViet
+
+@{
+    ViewData["Title"] = Model.TieuDe;
+    var binhLuans = ViewBag.BinhLuans as List<TourWebApp.Data.Models.BinhLuanTour>;
+    bool daDangNhap = ViewBag.DaDangNhap == true;
+}
+
+<section class="container my-5">
+
+    <a asp-action="Index" class="btn btn-outline-primary mb-3">← Quay lại Blog</a>
+
+    <h2 class="fw-bold mb-2">@Model.TieuDe</h2>
+
+    <p class="text-muted">
+        📅 @Model.NgayDang.ToString("dd/MM/yyyy")
+        | 📂 @Model.IdCMNavigation?.TenCM
+    </p>
+
+    <!-- ✅ HÌNH ẢNH -->
+    @{
+        string img = "/img/blog/default.jpg";
+        if (!string.IsNullOrEmpty(Model.HinhAnh))
+        {
+            img = "/" + Model.HinhAnh.TrimStart('/');
+        }
+    }
+
+    <img src="@img"
+         class="w-100 rounded mb-4 shadow-sm"
+         style="max-height:420px;object-fit:cover" />
+
+    <article class="fs-5" style="line-height:1.7">
+        @Html.Raw(Model.NoiDung.Replace("\n","<br/>"))
+    </article>
+</section>
+
+<!-- ================== BÌNH LUẬN ================== -->
+<section class="container my-5">
+
+    <hr />
+    <h4 class="fw-bold mb-4">💬 Bình luận bài viết</h4>
+
+    @if (binhLuans == null || binhLuans.Count == 0)
+    {
+        <p class="fst-italic text-muted">Chưa có bình luận nào.</p>
+    }
+    else
+    {
+        foreach (var bl in binhLuans)
+        {
+            <div class="p-3 mb-3 rounded bg-light shadow-sm">
+                <div class="d-flex">
+
+                    <!-- ✅ AVATAR CỐ ĐỊNH -->
+                    <img src="~/img/icons/user.png"
+                         style="width:45px;height:45px;border-radius:50%"
+                         class="me-3 border" />
+
+                    <div class="flex-grow-1">
+                        <strong>@bl.Ten</strong>
+                        <span class="badge bg-secondary ms-1">Thành viên</span>
+
+                        <div class="text-muted small">
+                            @bl.NgayBL.ToString("dd/MM/yyyy HH:mm")
+                        </div>
+
+                        <p class="mt-2 mb-0">@bl.NoiDung</p>
+                        @if (!string.IsNullOrEmpty(bl.PhanHoiAdm))
+                        {
+                            <div class="ms-5 mt-3 p-3 bg-white border-start border-3 border-danger rounded shadow-sm">
+                                <strong class="text-danger">
+                                    HappyTrip Admin
+                                </strong>
+                                <span class="badge bg-danger ms-1">ADMIN</span>
+
+                                <div class="text-muted small mt-1">
+                                    Phản hồi từ quản trị viên
+                                </div>
+
+                                <p class="mb-0 mt-2">
+                                    @bl.PhanHoiAdm
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    <hr />
+
+    <!-- ================== FORM BÌNH LUẬN ================== -->
+    @if (daDangNhap)
+    {
+        <form asp-action="ThemBinhLuan" method="post" class="mt-4">
+            <input type="hidden" name="idBaiViet" value="@Model.IdBaiViet" />
+
+            <textarea name="noiDung"
+                      class="form-control mb-3"
+                      rows="4"
+                      placeholder="Chia sẻ cảm nghĩ của bạn..."
+                      required></textarea>
+
+            <button class="btn btn-primary">Gửi bình luận</button>
+        </form>
+    }
+    else
+    {
+        <div class="text-center text-muted py-4">
+            <i class="fa-solid fa-lock me-1"></i>
+            <a asp-controller="TaiKhoan"
+                asp-action="DangNhap"
+                asp-route-returnUrl="@Context.Request.Path"
+                class="fw-bold text-decoration-none">
+                Đăng nhập
+            </a>
+
+            để tham gia thảo luận và chia sẻ trải nghiệm du lịch của bạn 💬
+        </div>
+    }
+</section>
+
+<link rel="stylesheet" href="~/css/blog.css" />

@@ -1,0 +1,40 @@
+@model TourWebApp.Data.Models.DonDatTour
+@{
+    ViewData["Title"] = "Chi tiết đơn tour";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <h3 class="mb-3">Chi tiết đơn tour</h3>
+
+    <div class="card p-4 shadow-sm">
+        <p><strong>Mã đơn:</strong> @Model.MaBooking</p>
+        <p><strong>Tour:</strong> @Model.IdTourNavigation?.TenTour</p>
+        <p><strong>Ngày khởi hành:</strong> @Model.IdLichNavigation?.NgayKhoiHanh.ToString("dd/MM/yyyy")</p>
+
+        <p><strong>Số lượng:</strong>
+            @Model.NguoiLon người lớn,
+            @Model.TreEm trẻ em,
+            @Model.TreNho em bé
+        </p>
+
+        <p><strong>Tổng tiền:</strong>
+            <span class="text-danger fw-bold">@Model.TongTien.ToString("N0") đ</span>
+        </p>
+
+        <p><strong>Trạng thái:</strong>
+            <span class="badge bg-info">@Model.TrangThai</span>
+        </p>
+
+        <!-- NÚT ĐẶT LẠI ĐƠN MỚI -->
+        @if (Model.TrangThai == "DaHuy" || Model.TrangThai == "HetHanThanhToan")
+        {
+            <a class="btn btn-warning mt-3"
+               href="/DatTour/NhapThongTin?idTour=@Model.IdTour&idLich=@Model.IdLich&adult=@Model.NguoiLon&child=@Model.TreEm&baby=@Model.TreNho">
+                🔁 Đặt lại đơn mới
+            </a>
+        }
+
+        <a class="btn btn-secondary mt-3" href="/TaiKhoan/DonCuaToi">Quay lại</a>
+    </div>
+</div>

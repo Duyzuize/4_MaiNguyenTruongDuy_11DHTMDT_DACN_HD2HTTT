@@ -1,0 +1,237 @@
+﻿@using TourWebApp.Data.Models
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext db
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - HappyTrip</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user-menu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='black' class='bi bi-list' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2.5 12.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔵 TOP BAR -->
+    <div class="topbar py-1">
+        <div class="container">
+            📞 <strong>0938 179 170</strong>
+        </div>
+    </div>
+
+    <!-- 🔵 NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-main sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="~/img/logo.svg" asp-append-version="true" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="Home" asp-action="About">Giới thiệu</a>
+                    </li>
+
+                    <!-- 🔵 TOUR MEGA MENU (Hover mở, click = xem tất cả) -->
+                    <li class="nav-item px-2 position-relative">
+                        <!-- Bấm TOUR = xem tất cả tour -->
+                        <a class="nav-link" href="/Tour/TatCa" id="tourMenu">
+                            Tour
+                        </a>
+
+                        <!-- Mega menu xổ ra khi hover -->
+                        <div class="mega-menu">
+
+                            @{
+                                var loaiTours = db.LoaiTours
+                                    .OrderBy(x => x.TenLoai)
+                                    .ToList();
+                            }
+
+                            @foreach (var item in loaiTours)
+                            {
+                                <a href="/Tour/TheoLoai/@item.IdLoaiTour"
+                                class="mega-item">
+                                    @item.TenLoai
+                                </a>
+                            }
+
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="BangGia" asp-action="Index">Bảng giá</a>
+                    </li>
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="Blog" asp-action="Index">Blog</a>
+                    </li>
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="HinhAnh" asp-action="Index">Hình ảnh</a>
+                    </li>
+
+                    <li class="nav-item px-2">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">Liên hệ</a>
+                    </li>
+
+                
+                   @{
+                        var hoTen = Context.Session.GetString("HoTen");
+                        var vaiTro = Context.Session.GetString("VaiTro");
+                    }
+
+                    @if (hoTen == null)
+                    {
+                        <!-- Chưa đăng nhập -->
+                        <li class="nav-item">
+                            <a asp-controller="TaiKhoan" asp-action="DangNhap" class="btn btn-primary text-white px-3">
+                                Đăng nhập
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- Nếu là ADMIN thì hiện nút Quản trị -->
+                        if (vaiTro == "Admin")
+                        {
+                            <li class="nav-item px-2">
+                                <a asp-controller="QuanTri" asp-action="Dashboard" class="nav-link text-danger fw-bold">
+                                    Quản trị
+                                </a>
+                            </li>
+                        }
+
+                      <li class="nav-item user-dropdown">
+
+                            <div class="user-box">
+                                <div class="user-avatar">
+                                    @hoTen.Substring(0,1)
+                                </div>
+                                <span class="user-name">@hoTen</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+
+                            <div class="user-menu">
+                                <a asp-controller="TaiKhoan" asp-action="HoSo">
+                                    <i class="fas fa-user me-2"></i> Hồ sơ cá nhân
+                                </a>
+
+                                <a asp-controller="TaiKhoan" asp-action="DonCuaToi">
+                                    <i class="fas fa-shopping-cart me-2"></i> Đơn của tôi
+                                </a>
+
+
+
+                                <a asp-controller="TaiKhoan" asp-action="DangXuat" class="logout-btn">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
+                                </a>
+                            </div>
+
+                        </li>
+
+
+                    }
+
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- MAIN -->
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-advanced">
+    <div class="container">
+        <div class="footer-grid">
+
+            <!-- Cột 1: Logo + mô tả -->
+            <div class="footer-col">
+                <div class="footer-logo">HappyTrip</div>
+                <p>CÔNG TY DU LỊCH HAPPYTRIP</p>
+                <p>Chuyên tour miền Nam - Giá tốt - Dịch vụ uy tín</p>
+
+                <div class="footer-social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+
+            <!-- Cột 2: Thông tin liên hệ -->
+            <div class="footer-col">
+                <h4>THÔNG TIN LIÊN HỆ</h4>
+                <p>📍 Bình Thạnh, TP.HCM</p>
+                <p>📞 0938 179 170</p>
+                <p>✉ happytrip@gmail.com</p>
+                <p>🌐 happytrip.vn</p>
+            </div>
+
+            <!-- Cột 3: Hỗ trợ -->
+            <div class="footer-col">
+                <h4>GIỚI THIỆU</h4>
+                <a href="#">Về chúng tôi</a>
+                <a href="#">Hướng dẫn đặt tour</a>
+                <a href="#">Câu hỏi thường gặp</a>
+                <a href="#">Chính sách bảo mật</a>
+            </div>
+
+            <!-- Cột 4: Thanh toán + chứng nhận -->
+            <div class="footer-col">
+                <h4>CHẤP NHẬN THANH TOÁN</h4>
+                <div class="payment-imgs">
+                    <img src="/img/payment/visa.png" />
+                    <img src="/img/payment/mastercard.png" />
+                    <img src="/img/payment/momo.png" />
+                    <img src="/img/payment/vnpay.png" />
+                </div>
+
+                <h4>CHỨNG NHẬN</h4>
+                <div class="cert-imgs">
+                    <img src="/img/certified/dmca.png" />
+                    <img src="/img/certified/bocongthuong.png" />
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <p class="footer-copy">© 2025 HappyTrip. All rights reserved.</p>
+    </div>
+</footer>
+
+   
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

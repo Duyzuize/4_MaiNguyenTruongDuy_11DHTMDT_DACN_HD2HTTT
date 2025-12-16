@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<link rel="stylesheet" href="~/css/auth.css" />
+
+<div class="auth-bg">
+    <div class="auth-container">
+        <div class="auth-box">
+
+            <h2>Chào mừng trở lại</h2>
+            <p>Đăng nhập vào tài khoản của bạn</p>
+
+            @if (ViewBag.ThongBao != null)
+            {
+                <div class="error-text">@ViewBag.ThongBao</div>
+            }
+
+            <form method="post" action="/TaiKhoan/DangNhap">
+                    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Email đăng nhập" required />
+                </div>
+
+                <!-- PASSWORD + CON MẮT -->
+                <div class="form-group password-wrapper">
+                    <input type="password" id="MatKhau" name="MatKhau" placeholder="Mật khẩu" required />
+                    <span class="toggle-password" onclick="togglePassword('MatKhau', this)">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" /> Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn-login">ĐĂNG NHẬP</button>
+
+                <div class="divider">Hoặc</div>
+                
+                <div class="register-link">
+                    Chưa có tài khoản?
+                    <a asp-controller="TaiKhoan" asp-action="DangKy">Đăng ký</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/js/password-validation.js"></script>

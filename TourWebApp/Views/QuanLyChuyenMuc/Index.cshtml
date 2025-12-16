@@ -1,0 +1,74 @@
+@model List<TourWebApp.Data.Models.ChuyenMucBaiViet>
+
+@{
+    ViewData["Title"] = "Quản lý chuyên mục";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; // hoặc layout admin con đang dùng
+}
+
+<h3 class="fw-bold mb-4">
+    <i class="fa-solid fa-folder-open me-2"></i> Quản lý chuyên mục bài viết
+</h3>
+
+<a asp-action="Create" class="btn btn-success mb-3">
+    <i class="fa fa-plus"></i> Thêm chuyên mục
+</a>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th width="60">#</th>
+            <th>Tên chuyên mục</th>
+            <th>Mô tả</th>
+            <th width="120">Trạng thái</th>
+            <th width="160">Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="5" class="text-center fst-italic">
+                    Chưa có chuyên mục nào
+                </td>
+            </tr>
+        }
+        else
+        {
+            int stt = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.TenCM</td>
+                    <td>@item.MoTa</td>
+                    <td>
+                        @if (item.TrangThai)
+                        {
+                            <span class="badge bg-success">Hiển thị</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Ẩn</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdCM"
+                           class="btn btn-warning btn-sm">
+                            <i class="fa fa-pen"></i>
+                        </a>
+
+                        <form asp-action="Delete" asp-route-id="@item.IdCM"
+                              method="post" class="d-inline"
+                              onsubmit="return confirm('Xóa chuyên mục này?')">
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                stt++;
+            }
+        }
+    </tbody>
+</table>

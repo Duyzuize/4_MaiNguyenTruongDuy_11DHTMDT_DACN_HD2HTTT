@@ -1,0 +1,35 @@
+@model List<TourWebApp.Data.Models.HinhTour>
+
+@{
+    ViewData["Title"] = "Thư viện ảnh";
+}
+
+<link rel="stylesheet" href="~/css/gallery.css" />
+
+<h2 class="text-center mb-4">📸 Thư viện hình ảnh tour</h2>
+
+<div class="row g-4">
+
+@foreach (var h in Model)
+{
+    <div class="col-md-4">
+        <div class="gallery-item">
+
+            <img src="@Url.Content("~/img/tours/" + h.UrlHinh)"
+                 class="img-fluid rounded gallery-img"
+                 onclick="openImage(this.src)"
+                 style="cursor:pointer;" />
+
+        </div>
+    </div>
+}
+
+</div>
+
+<!-- MODAL HIỂN THỊ ẢNH -->
+<div id="imgModal" class="img-modal">
+    <span class="close-btn" onclick="closeImage()">✖</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script src="~/js/gallery.js"></script>

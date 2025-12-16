@@ -1,0 +1,41 @@
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.gallery-img {
+    transition: 0.4s ease;
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.05);
+}
+.img-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.img-modal img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}

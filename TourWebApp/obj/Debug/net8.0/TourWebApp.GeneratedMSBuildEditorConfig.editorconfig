@@ -1,0 +1,175 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TourWebApp
+build_property.RootNamespace = TourWebApp
+build_property.ProjectDir = D:\DuLichDA\TourWebApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\DuLichDA\TourWebApp
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/DuLichDA/TourWebApp/Views/Blog/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDaGlUaWV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/DatTour/HoanTat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0VG91clxIb2FuVGF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/DatTour/NhapThongTin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0VG91clxOaGFwVGhvbmdUaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/DatTour/ThanhToan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0VG91clxUaGFuaFRvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/HinhAnh/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaEFuaFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyBaiViet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5QmFpVmlldFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyBaiViet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5QmFpVmlldFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyBinhLuan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5QmluaEx1YW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyChuyenMuc/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5Q2h1eWVuTXVjXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyChuyenMuc/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5Q2h1eWVuTXVjXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyChuyenMuc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5Q2h1eWVuTXVjXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyDon/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5RG9uXENoaVRpZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanLyDon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5RG9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/ChiTietTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxDaGlUaWV0VG91ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/DanhSachLich.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxEYW5oU2FjaExpY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/QuanLyTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxRdWFuTHlUb3VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/SuaTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxTdWFUb3VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/QuanTri/ThemTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhblRyaVxUaGVtVG91ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/TaiKhoan/ChiTietDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cQ2hpVGlldERvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/TaiKhoan/DangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRGFuZ0t5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/TaiKhoan/DangNhap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRGFuZ05oYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/TaiKhoan/DonCuaToi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRG9uQ3VhVG9pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/TaiKhoan/HoSo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cSG9Tby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Tour/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxDaGlUaWV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Tour/TatCa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxUYXRDYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Tour/TheoLoai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxUaGVvTG9haS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Tour/_LoaiTourMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxfTG9haVRvdXJNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Tour/_MegaMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91clxfTWVnYU1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-cl4pnhx6cu

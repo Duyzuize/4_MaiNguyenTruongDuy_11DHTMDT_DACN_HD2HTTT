@@ -1,0 +1,59 @@
+.user-dropdown {
+    position: relative;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    background: #4b6cff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* MENU */
+.user-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    padding: 10px 0;
+    width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+    z-index: 9999;
+}
+
+/* GIỮ MENU KHI RÊ CHUỘT */
+.user-dropdown:hover .user-menu,
+.user-menu:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.user-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.user-menu a:hover {
+    background: #f5f7ff;
+}

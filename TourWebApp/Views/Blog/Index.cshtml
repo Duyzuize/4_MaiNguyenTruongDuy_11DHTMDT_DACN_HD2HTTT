@@ -1,0 +1,94 @@
+@model List<TourWebApp.Data.Models.BaiViet>
+
+@{
+    ViewData["Title"] = "Blog Du Lịch";
+}
+
+<!-- HERO BANNER -->
+<div class="blog-hero text-center">
+    <h1 class="fw-bold">Khám phá Blog Du Lịch</h1>
+    <p class="text-light fs-5">Kinh nghiệm – Review – Khám phá – Cẩm nang du lịch</p>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+
+        <!-- DANH SÁCH BÀI VIẾT -->
+        <div class="col-lg-8">
+            <div class="row g-4">
+
+                @foreach (var bv in Model)
+                {
+                    <div class="col-md-6 col-xl-4">
+                        <div class="blog-card shadow-sm">
+
+                            <!-- Hình bài viết -->
+                            @{
+                                var imgPath = "~/" + (bv.HinhAnh ?? "").TrimStart('/');
+                            }
+                            <img src="@Url.Content(imgPath)" class="blog-thumb" />
+
+                            <div class="p-3">
+
+                                <!-- Tiêu đề -->
+                                <h5 class="fw-bold title">@bv.TieuDe</h5>
+
+                                <!-- Mô tả ngắn -->
+                                <p class="text-muted small desc">
+                                    @bv.NoiDung.Substring(0, Math.Min(90, bv.NoiDung.Length))...
+                                </p>
+
+                                <!-- Nút xem -->
+                                <a asp-controller="Blog"
+                                   asp-action="ChiTiet"
+                                   asp-route-id="@bv.IdBaiViet"
+                                   class="read-more">
+                                    Đọc bài viết →
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+            <div class="sidebar">
+
+                <h4 class="fw-bold mb-3">🔥 Bài viết nổi bật</h4>
+
+                @foreach (var hot in Model.Take(3))
+                {
+                    <a asp-action="ChiTiet" asp-route-id="@hot.IdBaiViet" class="hot-item">
+
+                        @{
+                            var imgHot = "~/" + (hot.HinhAnh ?? "").TrimStart('/');
+                        }
+                        <img src="@Url.Content(imgHot)" />
+
+                        <div>
+                            <h6 class="fw-bold">@hot.TieuDe</h6>
+                            <small class="text-muted">@hot.NgayDang.ToString("dd/MM/yyyy")</small>
+                        </div>
+                    </a>
+                }
+
+                <hr />
+
+                <h4 class="fw-bold mb-3">📂 Danh mục</h4>
+                <ul class="category-list">
+                    <li><a href="#">Cẩm nang du lịch</a></li>
+                    <li><a href="#">Review khách sạn</a></li>
+                    <li><a href="#">Ẩm thực</a></li>
+                    <li><a href="#">Tour nổi bật</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<link rel="stylesheet" href="~/css/blog.css" />

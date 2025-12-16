@@ -1,0 +1,95 @@
+@model TourWebApp.Models.ViewModels.NhapThongTinVM
+@{
+    var user = Context.Session.GetInt32("IdTaiKhoan") != null
+        ? (TourWebApp.Data.Models.TaiKhoan)ViewBag.User
+        : null;
+}
+
+<div class="container mt-4">
+    <h3 class="mb-4 fw-bold">Đặt tour: @Model.TenTour</h3>
+
+    <!-- THÔNG TIN TOUR -->
+    <div class="card mb-4 p-3">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Ngày khởi hành:</strong> @Model.NgayKhoiHanh.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Tổng khách:</strong> @Model.TongKhach</p>
+                <p><strong>Tổng tiền:</strong> @Model.TongTien.ToString("#,##0") đ</p>
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="TaoDonVaChuyenSangThanhToan" method="post">
+
+        <!-- ẨN ID TOUR & ID LỊCH -->
+        <input type="hidden" name="IdTour" value="@Model.IdTour" />
+        <input type="hidden" name="IdLich" value="@Model.IdLich" />
+
+        <!-- ẨN GIÁ — RẤT QUAN TRỌNG -->
+        <input type="hidden" name="GiaNguoiLon" value="@Model.GiaNguoiLon" />
+        <input type="hidden" name="GiaTreEm" value="@Model.GiaTreEm" />
+        <input type="hidden" name="GiaEmBe" value="@Model.GiaEmBe" />
+        <input type="hidden" name="TongTien" value="@Model.TongTien" />
+
+        <div class="card p-4 shadow-sm">
+            <h5 class="fw-bold mb-3">Thông tin khách hàng</h5>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Họ tên *</label>
+                    <input type="text" name="HoTen" class="form-control" value="@user?.HoTen" required />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Số điện thoại *</label>
+                    <input type="tel" name="SDT" class="form-control" value="@user?.SoDienThoai" required />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="Email" class="form-control" value="@user?.Email" />
+                </div>
+
+                <hr />
+
+                <!-- SỐ LƯỢNG KHÁCH -->
+                <h6 class="fw-bold mt-3">Số lượng khách</h6>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Người lớn</label>
+                    <input type="number" name="NguoiLon" class="form-control"
+                        value="@Model.NguoiLon" min="1" required />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Trẻ em</label>
+                    <input type="number" name="TreEm" class="form-control"
+                        value="@Model.TreEm" min="0" />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Em bé</label>
+                    <input type="number" name="EmBe" class="form-control"
+                        value="@Model.EmBe" min="0" />
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label class="form-label">Ghi chú</label>
+                    <textarea name="GhiChu" class="form-control" rows="3"></textarea>
+                </div>
+
+            </div>
+
+            <div class="text-end">
+                <button class="btn btn-primary px-4 py-2">
+                    Tiếp tục thanh toán →
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+</div>

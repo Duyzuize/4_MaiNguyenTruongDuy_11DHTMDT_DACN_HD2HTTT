@@ -1,0 +1,77 @@
+@model TourWebApp.Data.Models.DonDatTour
+
+<div class="container mt-4">
+    <h3 class="fw-bold mb-3">Thanh toán đơn #@Model.MaBooking</h3>
+
+    <div class="row">
+
+        <!-- Cột trái -->
+        <div class="col-md-6">
+            <div class="card p-3 mb-3 shadow-sm">
+                <h5 class="fw-bold">Thông tin đơn hàng</h5>
+
+                <p><strong>Tour:</strong> @Model.IdTourNavigation.TenTour</p>
+                <p><strong>Ngày khởi hành:</strong> 
+                    @Model.IdLichNavigation.NgayKhoiHanh.ToString("dd/MM/yyyy")
+                </p>
+
+                <p><strong>Số khách:</strong> 
+                    @Model.NguoiLon người lớn, 
+                    @Model.TreEm trẻ em,
+                    @Model.TreNho em bé
+                </p>
+
+                <p><strong>Tổng khách:</strong> @(Model.NguoiLon + Model.TreEm + Model.TreNho)</p>
+
+                <p class="mt-3"><strong>Tổng tiền:</strong> 
+                    <span class="text-danger fw-bold">
+                        @Model.TongTien.ToString("N0") đ
+                    </span>
+                </p>
+
+                <p><strong>Hạn thanh toán:</strong> 
+                    @Model.HanThanhToan?.ToString("HH:mm • dd/MM/yyyy")
+                </p>
+
+                <div class="alert alert-warning mt-3">
+                    Thời gian còn lại: 
+                    <strong><span id="countdown"></span></strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cột phải: QR -->
+        <div class="col-md-6">
+            <div class="card p-3 shadow-sm text-center">
+
+                <h5 class="fw-bold mb-3">Quét QR để thanh toán</h5>
+
+                <div class="qr-frame shadow p-3 rounded"
+                     style="background:white; width:360px; margin:auto; border:1px solid #e0e0e0;">
+
+                    <img src="~/img/qr/qr-vietqr.png"
+                         class="img-fluid"
+                         style="width:100%; border-radius:12px;" />
+
+                </div>
+
+                <p class="mt-3">Nội dung chuyển khoản:</p>
+                <p class="fw-bold text-primary">HappyTrip @Model.MaBooking</p>
+
+                <button onclick="location.href='/DatTour/XacNhanThanhToan?idDon=@Model.IdDon'"
+                        class="btn btn-success mt-3 px-4">
+                    Tôi đã thanh toán xong
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/countdown.js"></script>
+    <script>
+        startCountdown("@Model.HanThanhToan", "countdown");
+    </script>
+}

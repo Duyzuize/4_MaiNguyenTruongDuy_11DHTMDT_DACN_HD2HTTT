@@ -1,0 +1,841 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TourWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\TourWebApp.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\about.css",
+      "PackagePath": "staticwebassets\\css\\about.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\auth.css",
+      "PackagePath": "staticwebassets\\css\\auth.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\blog.css",
+      "PackagePath": "staticwebassets\\css\\blog.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\dashboard-admin.css",
+      "PackagePath": "staticwebassets\\css\\dashboard-admin.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\doncuatoi.css",
+      "PackagePath": "staticwebassets\\css\\doncuatoi.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\gallery.css",
+      "PackagePath": "staticwebassets\\css\\gallery.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\quanly-tour.css",
+      "PackagePath": "staticwebassets\\css\\quanly-tour.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\slider.css",
+      "PackagePath": "staticwebassets\\css\\slider.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\tour-detail.css",
+      "PackagePath": "staticwebassets\\css\\tour-detail.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\tour-filter.css",
+      "PackagePath": "staticwebassets\\css\\tour-filter.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\upload-tour.css",
+      "PackagePath": "staticwebassets\\css\\upload-tour.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\css\\user-menu.css",
+      "PackagePath": "staticwebassets\\css\\user-menu.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\fonts\\Roboto-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto-Bold.ttf"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\fonts\\Roboto-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Roboto-Regular.ttf"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\cover.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\cover.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\gal1.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\gal1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\gal2.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\gal2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\gal3.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\gal3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\header.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\header.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\mientay.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\mientay.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\mission.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\mission.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\muine.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\muine.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\about\\phuquoc.jpg",
+      "PackagePath": "staticwebassets\\img\\about\\phuquoc.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\banner\\blog-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\banner\\blog-bg.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\639009242598123978_du-lich-ho-tram.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\639009242598123978_du-lich-ho-tram.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\639009265641103931_am-thuc-ho-tram.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\639009265641103931_am-thuc-ho-tram.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\blog1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\blog2.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\blog3.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\blog\\test.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\test.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\certified\\bocongthuong.png",
+      "PackagePath": "staticwebassets\\img\\certified\\bocongthuong.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\certified\\dmca.png",
+      "PackagePath": "staticwebassets\\img\\certified\\dmca.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero1.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero2.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero3.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero4.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero4.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero5.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero5.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\hero\\hero6.jpg",
+      "PackagePath": "staticwebassets\\img\\hero\\hero6.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\home\\biendao.jpg",
+      "PackagePath": "staticwebassets\\img\\home\\biendao.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\home\\cta-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\home\\cta-bg.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\home\\mientay.jpg",
+      "PackagePath": "staticwebassets\\img\\home\\mientay.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\home\\saigon.jpg",
+      "PackagePath": "staticwebassets\\img\\home\\saigon.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\icons\\user-1.png",
+      "PackagePath": "staticwebassets\\img\\icons\\user-1.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\icons\\user-2.png",
+      "PackagePath": "staticwebassets\\img\\icons\\user-2.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\icons\\user-3.png",
+      "PackagePath": "staticwebassets\\img\\icons\\user-3.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\icons\\user.png",
+      "PackagePath": "staticwebassets\\img\\icons\\user.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\logo.svg",
+      "PackagePath": "staticwebassets\\img\\logo.svg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\partners\\bamboo.png",
+      "PackagePath": "staticwebassets\\img\\partners\\bamboo.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\partners\\booking.png",
+      "PackagePath": "staticwebassets\\img\\partners\\booking.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\partners\\traveloka.png",
+      "PackagePath": "staticwebassets\\img\\partners\\traveloka.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\partners\\vietjet.png",
+      "PackagePath": "staticwebassets\\img\\partners\\vietjet.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\partners\\vnairlines.png",
+      "PackagePath": "staticwebassets\\img\\partners\\vnairlines.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\payment\\mastercard.png",
+      "PackagePath": "staticwebassets\\img\\payment\\mastercard.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\payment\\momo.png",
+      "PackagePath": "staticwebassets\\img\\payment\\momo.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\payment\\visa.png",
+      "PackagePath": "staticwebassets\\img\\payment\\visa.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\payment\\vnpay.png",
+      "PackagePath": "staticwebassets\\img\\payment\\vnpay.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\qr\\qr-vietqr.png",
+      "PackagePath": "staticwebassets\\img\\qr\\qr-vietqr.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\0745457b-9d00-4578-bb57-57e2f904003c.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\0745457b-9d00-4578-bb57-57e2f904003c.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\15a4ebe5-f068-4009-9fcf-d4694518f3c5.png",
+      "PackagePath": "staticwebassets\\img\\tours\\15a4ebe5-f068-4009-9fcf-d4694518f3c5.png"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\43285582-69de-4389-8e29-709a1c90d69b.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\43285582-69de-4389-8e29-709a1c90d69b.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\88c1f4bf-672f-4272-b4e2-e99e756657d4.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\88c1f4bf-672f-4272-b4e2-e99e756657d4.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\8f303b16-1c2c-49cc-9174-c9cf9fbbd40e.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\8f303b16-1c2c-49cc-9174-c9cf9fbbd40e.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\b666cff0-7183-42e2-89e7-c442a91e0bff.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\b666cff0-7183-42e2-89e7-c442a91e0bff.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\bentre.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\bentre.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\bt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\bt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\bt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\bt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\bt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\bt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\can-tho.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\can-tho.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\cantho.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\cantho.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\ct01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\ct01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\ct01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\ct01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\ct01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\ct01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dalat.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dalat.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dalat1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dalat1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dalat2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dalat2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dalat_city.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dalat_city.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dc2fc484-7375-4641-8c5c-951bd019c65f.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dc2fc484-7375-4641-8c5c-951bd019c65f.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dl01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dl01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dl01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dl01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\dl01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\dl01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\ea0c976b-bfaa-43de-8ce8-42d614bcacd7.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\ea0c976b-bfaa-43de-8ce8-42d614bcacd7.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\f0b47924-b925-4070-b9aa-55583f86a376.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\f0b47924-b925-4070-b9aa-55583f86a376.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hcm_city.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hcm_city.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\bt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\bt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\bt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\bt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\bt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\bt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\ct01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\ct01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\ct01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\ct01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\ct01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\ct01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\dl01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\dl01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\dl01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\dl01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\dl01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\dl01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\mt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\mt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\mt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\mt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\mt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\mt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pq01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pq01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pq01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pq01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pq01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pq01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\pt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\pt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\sg01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\sg01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\sg01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\sg01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\sg01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\sg01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\vt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\vt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\vt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\vt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\hinhtour\\vt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\hinhtour\\vt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\mientay.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\mientay.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\mt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\mt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\mt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\mt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\mt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\mt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\phanthiet.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\phanthiet.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\phuquoc.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\phuquoc.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pq01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pq01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pq01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pq01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pq01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pq01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\pt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\pt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\saigon-city.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\saigon-city.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\saigon.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\saigon.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\sg01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\sg01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\sg01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\sg01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\sg01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\sg01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\vt01_1.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\vt01_1.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\vt01_2.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\vt01_2.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\vt01_3.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\vt01_3.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\vung-tau.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\vung-tau.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\img\\tours\\vungtau.jpg",
+      "PackagePath": "staticwebassets\\img\\tours\\vungtau.jpg"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\admin.js",
+      "PackagePath": "staticwebassets\\js\\admin.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\countdown.js",
+      "PackagePath": "staticwebassets\\js\\countdown.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\dashboard-admin.js",
+      "PackagePath": "staticwebassets\\js\\dashboard-admin.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\filter-slider.js",
+      "PackagePath": "staticwebassets\\js\\filter-slider.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\gallery.js",
+      "PackagePath": "staticwebassets\\js\\gallery.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\gia-tour.js",
+      "PackagePath": "staticwebassets\\js\\gia-tour.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\lich-khoi-hanh.js",
+      "PackagePath": "staticwebassets\\js\\lich-khoi-hanh.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\password-validation.js",
+      "PackagePath": "staticwebassets\\js\\password-validation.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\quanly-tour.js",
+      "PackagePath": "staticwebassets\\js\\quanly-tour.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\slider.js",
+      "PackagePath": "staticwebassets\\js\\slider.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\tinh-gia-tour.js",
+      "PackagePath": "staticwebassets\\js\\tinh-gia-tour.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\tour-detail.js",
+      "PackagePath": "staticwebassets\\js\\tour-detail.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\js\\upload-anh-tour.js",
+      "PackagePath": "staticwebassets\\js\\upload-anh-tour.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\DuLichDA\\TourWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TourWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TourWebApp.props",
+      "PackagePath": "build\\TourWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TourWebApp.props",
+      "PackagePath": "buildMultiTargeting\\TourWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TourWebApp.props",
+      "PackagePath": "buildTransitive\\TourWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

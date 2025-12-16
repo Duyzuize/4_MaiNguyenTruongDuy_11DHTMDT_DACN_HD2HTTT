@@ -1,0 +1,39 @@
+@model TourWebApp.Data.Models.BaiViet
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var cms = ViewBag.ChuyenMucs as List<TourWebApp.Data.Models.ChuyenMucBaiViet>;
+}
+
+<h3 class="fw-bold mb-4">✍️ Tạo bài viết</h3>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data"
+      class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Tiêu đề</label>
+        <input asp-for="TieuDe" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Chuyên mục</label>
+        <select asp-for="IdCM" class="form-select">
+            @foreach (var cm in cms!)
+            {
+                <option value="@cm.IdCM">@cm.TenCM</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Ảnh đại diện</label>
+        <input type="file" name="uploadHinh" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Nội dung</label>
+        <textarea asp-for="NoiDung" rows="6"
+                  class="form-control" required></textarea>
+    </div>
+
+    <button class="btn btn-success">💾 Lưu bài viết</button>
+</form>

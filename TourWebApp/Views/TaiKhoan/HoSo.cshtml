@@ -1,0 +1,164 @@
+@model TourWebApp.Data.Models.TaiKhoan
+@using TourWebApp.Data.Models
+
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+    var ds = ViewBag.DonCuaToi as List<DonDatTour>;
+}
+
+<link rel="stylesheet" href="~/css/profile.css" />
+<link rel="stylesheet" href="~/css/doncuatoi.css" />
+
+<div class="profile-wrapper">
+    <div class="profile-card">
+
+        <h3>👤 Hồ sơ cá nhân</h3>
+        <p>Cập nhật thông tin tài khoản của bạn</p>
+
+        @if (ViewBag.ThongBao != null)
+        {
+            <div class="profile-success">@ViewBag.ThongBao</div>
+        }
+
+        <form method="post">
+            <input type="hidden" asp-for="IdTaiKhoan" />
+
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <input asp-for="HoTen" placeholder="Nhập họ tên" />
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input value="@Model.Email" readonly class="readonly-input" />
+            </div>
+
+            <div class="form-group">
+                <label>Số điện thoại</label>
+                <input asp-for="SoDienThoai" placeholder="Nhập số điện thoại" />
+            </div>
+
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <textarea asp-for="DiaChi" placeholder="Nhập địa chỉ"></textarea>
+            </div>
+
+            <button class="btn-save">Lưu thay đổi</button>
+        </form>
+
+        <!-- =================== ĐƠN CỦA TÔI =================== -->
+        <div class="my-orders">
+            <h4>📦 Đơn của tôi</h4>
+
+            @if (ds != null && ds.Any())
+            {
+                foreach (var don in ds)
+                {
+                    <div class="order-item">
+
+                        <div class="order-top">
+                            <span><strong>Mã đơn:</strong> @don.MaBooking</span>
+                            <span class="status @don.TrangThai">@don.TrangThai</span>
+                        </div>
+
+                        <div class="order-body">
+                            <p><strong>Tour:</strong> @don.IdTourNavigation?.TenTour</p>
+                            <p><strong>Ngày đặt:</strong> @don.NgayDat.ToString("dd/MM/yyyy HH:mm")</p>
+                            <p><strong>Tổng tiền:</strong> @don.TongTien.ToString("N0") đ</p>
+                        </div>
+
+                       
+                        <div class="order-timeline animated">
+
+                            <!-- BƯỚC 1 -->
+                            <div class="step done tooltip-box">
+                                <span class="circle"></span>
+                                <span class="label">Tạo đơn</span>
+                                <small>@don.NgayDat.ToString("HH:mm dd/MM")</small>
+
+                                <div class="tooltip-content">
+                                    🟡 <b>Đơn đã được tạo</b><br/>
+                                    Thời gian tạo: @don.NgayDat.ToString("HH:mm dd/MM/yyyy")
+                                </div>
+                            </div>
+
+                            <div class="line"></div>
+
+                            <!-- BƯỚC 2 -->
+                            <div class="step @(don.TrangThai == "ThanhToanThanhCong" ? "done" : "") tooltip-box">
+                                <span class="circle"></span>
+                                <span class="label">Thanh toán</span>
+                                <small>
+                                    @(don.NgayThanhToan.HasValue ? don.NgayThanhToan.Value.ToString("HH:mm dd/MM") : "--")
+                                </small>
+
+                                <div class="tooltip-content">
+                                    @if (don.TrangThai == "ChoThanhToan")
+                                    {
+                                        <text>
+                                        🟡 <b>Chờ thanh toán</b><br/>
+                                        Đơn được giữ chỗ trong 10 phút.<br/>
+                                        Vui lòng thanh toán trước khi hết hạn.
+                                        </text>
+                                    }
+                                    else
+                                    {
+                                        <text>
+                                        🟢 <b>Đã thanh toán</b><br/>
+                                        Hệ thống đã nhận tiền và xác nhận đơn.
+                                        </text>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="line"></div>
+
+                            <!-- BƯỚC 3 -->
+                            <div class="step @(don.TrangThai == "DaHuy" ? "cancel" : "done") tooltip-box">
+                                <span class="circle"></span>
+                                <span class="label">Hoàn tất / Hủy</span>
+                                <small>@(don.TrangThai == "DaHuy" ? "Đã hủy" : "Hoàn tất")</small>
+
+                                <div class="tooltip-content">
+                                    @if (don.TrangThai == "DaHuy")
+                                    {
+                                        <text>
+                                        🔴 <b>Đơn đã bị hủy</b><br/>
+                                        Nguyên nhân: Hết thời gian thanh toán.
+                                        </text>
+                                    }
+                                    else
+                                    {
+                                        <text>
+                                        🟢 <b>Đơn hoàn tất</b><br/>
+                                        Tour đã được xác nhận thành công.
+                                        </text>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="order-actions">
+                            <a class="btn-view" href="/TaiKhoan/ChiTietDon?idDon=@don.IdDon">Xem chi tiết</a>
+
+                            @if (don.TrangThai == "ChoThanhToan")
+                            {
+                                <a class="btn-extend" href="/DatTour/GiaHanThanhToan?idDon=@don.IdDon">
+                                    Gia hạn 5 phút
+                                </a>
+                            }
+                        </div>
+
+                    </div>
+                }
+            }
+            else
+            {
+                <p>😿 Bạn chưa có đơn đặt tour nào.</p>
+            }
+        </div>
+
+    </div>
+</div>

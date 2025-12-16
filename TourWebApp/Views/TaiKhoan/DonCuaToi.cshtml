@@ -1,0 +1,48 @@
+@model List<TourWebApp.Data.Models.DonDatTour>
+@{
+    ViewData["Title"] = "Đơn của tôi";
+}
+
+<h3 class="mb-4">📦 Đơn đặt tour của tôi</h3>
+
+@if (!Model.Any())
+{
+    <p>Bạn chưa có đơn nào.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã đơn</th>
+                <th>Tour</th>
+                <th>Ngày đi</th>
+                <th>Số khách</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.MaBooking</td>
+                    <td>@d.IdTourNavigation.TenTour</td>
+                    <td>@d.IdLichNavigation.NgayKhoiHanh.ToString("dd/MM/yyyy")</td>
+                    <td>@(d.NguoiLon + d.TreEm + d.TreNho)</td>
+                    <td class="text-danger fw-bold">@d.TongTien.ToString("N0") đ</td>
+                    <td>
+                        <span class="badge bg-info">@d.TrangThai</span>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-primary"
+                           href="/TaiKhoan/ChiTietDon?idDon=@d.IdDon">
+                           Xem
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

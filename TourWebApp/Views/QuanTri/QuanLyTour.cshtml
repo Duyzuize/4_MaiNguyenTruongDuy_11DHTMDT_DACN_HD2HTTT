@@ -1,0 +1,203 @@
+@model TourWebApp.ViewModels.QuanLyTourViewModel
+@{
+  Layout = "_LayoutAdmin";   // tên layout admin mà mình vừa làm
+    ViewData["Title"] = "Quản lý tour";
+}
+<link rel="stylesheet" href="~/css/quanly-tour.css" />
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="mb-1">Quản lý tour</h3>
+        <div class="text-muted small">Xem, lọc và chỉnh sửa thông tin tour</div>
+    </div>
+
+    <a asp-action="ThemTour" class="btn btn-primary">
+        <i class="fa-solid fa-plus me-1"></i> Thêm tour mới
+    </a>
+</div>
+
+@if (TempData["ThongBao"] != null)
+{
+    <div class="alert alert-success py-2">
+        @TempData["ThongBao"]
+    </div>
+}
+
+<!-- BỘ LỌC -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form class="row g-3" method="get" asp-action="QuanLyTour">
+            <div class="col-md-4">
+                <label class="form-label">Từ khóa</label>
+                <input type="text" name="tuKhoa" value="@Model.TuKhoa"
+                       class="form-control" placeholder="Tên tour, địa điểm..." />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Loại tour</label>
+                <select name="idLoaiTour" class="form-select">
+                    <option value="">-- Tất cả --</option>
+                    @foreach (var lt in Model.LoaiTours)
+                    {
+                        <option value="@lt.IdLoaiTour"
+                                selected="@(Model.IdLoaiTour == lt.IdLoaiTour ? "selected" : null)">
+                            @lt.TenLoai
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3 align-self-end">
+                <button class="btn btn-outline-primary me-2">
+                    <i class="fa-solid fa-filter me-1"></i> Lọc tour
+                </button>
+                <a asp-action="QuanLyTour" class="btn btn-link text-decoration-none">Xóa lọc</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- BẢNG TOUR -->
+<div class="card shadow-sm">
+    <div class="card-body">
+       <table class="table table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>#</th>
+            <th>Mã tour</th>
+            <th>Tên tour</th>
+            <th>Loại</th>
+            <th>Địa điểm</th>
+            <th>Thời gian</th>
+            <th>Phương tiện</th>
+            <th>Giá gốc</th>
+            <th>Giá KM</th>
+            <th>% Giảm</th>
+            <th>Đã đặt</th>
+            <th>Lượt xem</th>
+            <th>Trạng thái</th>
+            <th class="text-center">Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int stt = 1;
+        }
+        @foreach (var t in Model.Tours)
+        {
+            <tr>
+                <td>@stt</td>
+                <td>@t.MaTour</td>
+               <td class="text-ellipsis" title="@t.TenTour">
+                    @t.TenTour
+                </td>
+                <td>
+                    @(t.IdLoaiTourNavigation != null 
+                        ? t.IdLoaiTourNavigation.TenLoai 
+                        : "Chưa có loại")
+                </td>
+                <td>@t.DiaDiem</td>
+                <td>@t.ThoiGian</td>
+                <td class="text-ellipsis">@t.PhuongTien</td>
+                <td>
+                @if (t.PhanTramGiam != null && t.PhanTramGiam > 0)
+                {
+                    <span class="text-muted text-decoration-line-through">
+                        @String.Format("{0:N0} đ", t.GiaGoc)
+                    </span>
+                }
+                else
+                {
+                    <span class="fw-semibold">
+                        @String.Format("{0:N0} đ", t.GiaGoc)
+                    </span>
+                }
+                </td>
+
+                <td class="text-danger fw-semibold">
+                    @String.Format("{0:N0} đ", t.GiaKhuyenMai)
+                </td>
+
+                <td>@t.PhanTramGiam %</td>
+                <td>@t.SoNguoiDaDat</td>
+                <td>@t.LuotXem</td>
+
+                <td>
+                @if (t.TrangThai)
+                {
+                    <span class="badge bg-success">Đang bán</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">Ngưng bán</span>
+                }
+                </td>
+
+
+                <td class="text-center">
+                    <div class="action-group">
+
+                        <!-- 👁 Xem -->
+                        <a asp-action="ChiTietTour"
+                        asp-route-id="@t.IdTour"
+                        class="btn-action view"
+                        title="Xem chi tiết">
+                            <i class="fa fa-eye"></i>
+                        </a>
+
+                        <!-- ✏️ Sửa -->
+                        <a asp-action="SuaTour"
+                        asp-route-id="@t.IdTour"
+                        class="btn-action edit"
+                        title="Chỉnh sửa tour">
+                            <i class="fa fa-pen"></i>
+                        </a>
+
+                        @if (t.TrangThai)
+                        {
+                            <!-- 🚫 Ngưng bán -->
+                            <form asp-action="NgungBanTour" method="post">
+                                <input type="hidden" name="id" value="@t.IdTour" />
+                                <button type="submit"
+                                        class="btn-action lock"
+                                        title="Ngưng bán"
+                                        onclick="return confirm('Ngưng bán tour này?')">
+                                    <i class="fa fa-ban"></i>
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <!-- ✅ Mở lại -->
+                            <form asp-action="MoLaiTour" method="post">
+                                <input type="hidden" name="id" value="@t.IdTour" />
+                                <button type="submit"
+                                        class="btn-action unlock"
+                                        title="Mở bán lại">
+                                    <i class="fa fa-refresh"></i>
+                                </button>
+                            </form>
+                        }
+
+                        <!-- 🗑 Xóa -->
+                        <form asp-action="XoaTour" method="post">
+                            <input type="hidden" name="id" value="@t.IdTour" />
+                            <button type="submit"
+                                    class="btn-action delete"
+                                    title="Xóa vĩnh viễn"
+                                    onclick="return confirm('XÓA VĨNH VIỄN tour này?')">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </td>
+
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>
+<script src="~/js/quanly-tour.js"></script>
+    </div>
+</div>
