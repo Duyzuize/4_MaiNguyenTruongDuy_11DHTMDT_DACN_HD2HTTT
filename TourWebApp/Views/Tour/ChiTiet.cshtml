@@ -95,6 +95,7 @@
         <li data-target="gia">Chính sách giá</li>
         <li data-target="huy">Chính sách hủy / phạt</li>
         <li data-target="khac">Thông tin khác</li>
+        <li data-target="binhluan">Bình luận (@(ViewBag.BinhLuanCount ?? 0))</li>
     </ul>
 
     <!-- TỔNG QUAN -->
@@ -297,70 +298,157 @@
         </ul>
     </div>
 
-    <!-- TOUR LIÊN QUAN -->
-    @if (tourLienQuan != null && tourLienQuan.Any())
-    {
-    <div class="mt-5">
-        <h3 class="fw-bold mb-4 text-center">Tour liên quan</h3>
+    @{
+    var binhLuans = ViewBag.BinhLuanTour as List<BinhLuanTour> ?? new List<BinhLuanTour>();
+    var idTaiKhoan = Context.Session.GetInt32("IdTaiKhoan");
+    }
 
-        <div class="row g-4 justify-content-center">
+    @{
+    var sortCmt = ViewBag.SortCmt as string ?? "new";
+    }
 
-            @foreach (var t in tourLienQuan)
-            {
-                var lichGanNhat = t.LichKhoiHanhs
-                    .OrderBy(l => l.NgayKhoiHanh)
-                    .FirstOrDefault();
+    <div class="tour-section" id="binhluan">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h4 class="section-title mb-0">Bình luận tour (@(ViewBag.BinhLuanCount ?? 0))</h4>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="related-card shadow-sm">
+            <select id="sortComment" class="form-select w-auto">
+                <option value="new" selected="@(sortCmt == "new")">Mới nhất</option>
+                <option value="old" selected="@(sortCmt == "old")">Cũ nhất</option>
+            </select>
+        </div>
 
-                        <!-- ẢNH -->
-                        <img src="~/img/tours/@t.HinhAnh"
-                             class="related-img" />
+        <div class="card shadow-sm border-0 mb-3">
 
-                        <div class="p-3">
+            <div class="card-body">
+                @if (idTaiKhoan == null)
+                {
+                    <div class="alert alert-info mb-0">
+                        Bạn cần
+                        <a asp-controller="TaiKhoan" asp-action="DangNhap" class="fw-bold">
+                            đăng nhập
+                        </a>
+                        để bình luận.
+                    </div>
+                }
+                else
+                {
+                    <form asp-controller="Tour" asp-action="ThemBinhLuanTour" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="idTour" value="@Model.IdTour" />
 
-                            <!-- THÔNG TIN NGẮN -->
-                            <p><b>Mã tour:</b> @t.MaTour</p>
-                            <p><b>Điểm đến:</b> @t.DiaDiem</p>
+                        <textarea name="noiDung"
+                            class="form-control auto-grow"
+                            rows="2"
+                            placeholder="Nhập bình luận của bạn..."
+                            required></textarea>
 
-                            @if (lichGanNhat != null)
-                            {
-                                <p><b>Ngày gần nhất:</b> @lichGanNhat.NgayKhoiHanh.ToString("dd/MM/yyyy")</p>
-                                <p><b>Giờ khởi hành:</b> @(lichGanNhat.GioKhoiHanh?.ToString("HH:mm") ?? "--")</p>
-                                <p><b>Còn lại:</b> @lichGanNhat.SoChoConLai chỗ</p>
-                                <p><b>Trạng thái:</b> @lichGanNhat.TrangThai</p>
-                            }
-
-                            <p><b>Phương tiện:</b> @t.PhuongTien</p>
-
-                            <hr />
-
-                            <!-- TÊN TOUR -->
-                            <h5 class="fw-bold">@t.TenTour</h5>
-                            <p class="text-muted">@t.ThoiGian</p>
-
-                            <!-- GIÁ -->
-                            <p class="price-related">
-                                <span class="price-km">@string.Format("{0:N0} đ", t.GiaKhuyenMai)</span>
-                                <span class="price-old">@string.Format("{0:N0} đ", t.GiaGoc)</span>
-                            </p>
-
-                            <!-- NÚT -->
-                            <a asp-controller="Tour"
-                               asp-action="ChiTiet"
-                               asp-route-id="@t.IdTour"
-                               class="btn btn-primary w-100 related-btn">
-                                Xem chi tiết
-                            </a>
-
+                        <div class="d-flex justify-content-end mt-2">
+                            <button class="btn btn-primary px-4">Gửi bình luận</button>
                         </div>
+                    </form>
+                }
+            </div>
+    </div>
+
+        @if (!binhLuans.Any())
+        {
+            <p class="text-muted">Chưa có bình luận nào.</p>
+        }
+        else
+        {
+            foreach (var bl in binhLuans)
+            {
+                <div class="card shadow-sm border-0 mb-2 @(string.IsNullOrWhiteSpace(bl.PhanHoiAdm) ? "" : "border-primary")">
+                    <div class="card-body">
+                       <div class="d-flex align-items-center gap-2">
+                            <img src="~/img/icons/user.png"
+                                    style="width:45px;height:45px;border-radius:50%"
+                                    class="border" />
+                            <div class="fw-bold">@bl.Ten</div>
+                        </div>
+
+                        <div class="text-muted small">@bl.NgayBL.ToString("dd/MM/yyyy HH:mm")</div>
+
+                        <div class="mt-2">@bl.NoiDung</div>
+
+                        @if (!string.IsNullOrWhiteSpace(bl.PhanHoiAdm))
+                        {
+                            <div class="mt-3 p-3 rounded bg-light border">
+                                <div class="fw-semibold text-primary">Admin phản hồi</div>
+                                <div class="mt-1">@bl.PhanHoiAdm</div>
+                            </div>
+                        }
                     </div>
                 </div>
             }
-        </div>
+        }
     </div>
-}
+
+
+    <!-- TOUR LIÊN QUAN -->
+    @if (tourLienQuan != null && tourLienQuan.Any())
+    {
+        <div class="mt-5">
+            <h3 class="fw-bold mb-4 text-center">Tour liên quan</h3>
+
+            <div class="row g-4 justify-content-center">
+
+                @foreach (var t in tourLienQuan)
+                {
+                    var lichGanNhat = t.LichKhoiHanhs
+                        .OrderBy(l => l.NgayKhoiHanh)
+                        .FirstOrDefault();
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="related-card shadow-sm">
+
+                            <!-- ẢNH -->
+                            <img src="~/img/tours/@t.HinhAnh"
+                                class="related-img" />
+
+                            <div class="p-3">
+
+                                <!-- THÔNG TIN NGẮN -->
+                                <p><b>Mã tour:</b> @t.MaTour</p>
+                                <p><b>Điểm đến:</b> @t.DiaDiem</p>
+
+                                @if (lichGanNhat != null)
+                                {
+                                    <p><b>Ngày gần nhất:</b> @lichGanNhat.NgayKhoiHanh.ToString("dd/MM/yyyy")</p>
+                                    <p><b>Giờ khởi hành:</b> @(lichGanNhat.GioKhoiHanh?.ToString("HH:mm") ?? "--")</p>
+                                    <p><b>Còn lại:</b> @lichGanNhat.SoChoConLai chỗ</p>
+                                    <p><b>Trạng thái:</b> @lichGanNhat.TrangThai</p>
+                                }
+
+                                <p><b>Phương tiện:</b> @t.PhuongTien</p>
+
+                                <hr />
+
+                                <!-- TÊN TOUR -->
+                                <h5 class="fw-bold">@t.TenTour</h5>
+                                <p class="text-muted">@t.ThoiGian</p>
+
+                                <!-- GIÁ -->
+                                <p class="price-related">
+                                    <span class="price-km">@string.Format("{0:N0} đ", t.GiaKhuyenMai)</span>
+                                    <span class="price-old">@string.Format("{0:N0} đ", t.GiaGoc)</span>
+                                </p>
+
+                                <!-- NÚT -->
+                                <a asp-controller="Tour"
+                                asp-action="ChiTiet"
+                                asp-route-id="@t.IdTour"
+                                class="btn btn-primary w-100 related-btn">
+                                    Xem chi tiết
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 
             <!-- POPUP CẢNH BÁO CHƯA ĐĂNG NHẬP -->
             <div class="modal fade" id="loginWarningModal" tabindex="-1">

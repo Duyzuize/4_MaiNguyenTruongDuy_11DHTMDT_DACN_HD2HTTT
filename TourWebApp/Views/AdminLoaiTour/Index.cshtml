@@ -1,0 +1,56 @@
+@model List<TourWebApp.Models.ViewModels.LoaiTourListVM>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Quản lý loại tour";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold mb-0">📌 Quản lý loại tour</h3>
+    <a class="btn btn-primary" asp-action="Create">+ Thêm loại tour</a>
+</div>
+
+<table class="table table-bordered align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th width="80">ID</th>
+            <th width="280">Tên loại</th>
+            <th>Mô tả</th>
+            <th width="120" class="text-center">Số tour</th>
+            <th width="220">Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model == null || Model.Count == 0)
+        {
+            <tr>
+                <td colspan="5" class="text-center text-muted fst-italic">Chưa có loại tour nào.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdLoaiTour</td>
+                    <td class="fw-semibold">@item.TenLoai</td>
+                    <td>@(string.IsNullOrWhiteSpace(item.MoTa) ? "-" : item.MoTa)</td>
+                    <td class="text-center">
+                        <span class="badge bg-info">@item.SoTour</span>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning btn-sm"
+                           asp-action="Edit"
+                           asp-route-id="@item.IdLoaiTour">Sửa</a>
+
+                        <form asp-action="Delete" method="post" class="d-inline"
+                              onsubmit="return confirm('Xóa loại tour này nha?');">
+                            <input type="hidden" name="id" value="@item.IdLoaiTour" />
+                            <button class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

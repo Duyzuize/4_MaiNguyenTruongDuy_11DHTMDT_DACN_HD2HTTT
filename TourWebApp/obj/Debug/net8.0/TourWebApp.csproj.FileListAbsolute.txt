@@ -145,6 +145,7 @@ D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.csproj.CoreCompileInputs.cach
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.MvcApplicationPartsAssemblyInfo.cache
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.RazorAssemblyInfo.cache
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.RazorAssemblyInfo.cs
+D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.sourcelink.json
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\staticwebassets.build.json
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\staticwebassets.development.json
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\staticwebassets\msbuild.TourWebApp.Microsoft.AspNetCore.StaticWebAssets.props
@@ -161,4 +162,3 @@ D:\DuLichDA\TourWebApp\obj\Debug\net8.0\refint\TourWebApp.dll
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.pdb
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.genruntimeconfig.cache
 D:\DuLichDA\TourWebApp\obj\Debug\net8.0\ref\TourWebApp.dll
-D:\DuLichDA\TourWebApp\obj\Debug\net8.0\TourWebApp.sourcelink.json

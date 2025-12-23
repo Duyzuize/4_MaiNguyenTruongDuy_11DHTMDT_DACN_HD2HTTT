@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\DuLichDA\TourWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/DuLichDA/TourWebApp/Views/AdminLoaiTour/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Mb2FpVG91clxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/AdminLoaiTour/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Mb2FpVG91clxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DuLichDA/TourWebApp/Views/AdminLoaiTour/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Mb2FpVG91clxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DuLichDA/TourWebApp/Views/Blog/ChiTiet.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDaGlUaWV0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

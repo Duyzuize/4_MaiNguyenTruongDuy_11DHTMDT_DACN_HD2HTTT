@@ -138,7 +138,7 @@ namespace TourWebApp.Controllers
         }
 
         // CHI TIẾT TOUR
-        public IActionResult ChiTiet(int id)
+        public IActionResult ChiTiet(int id, string? sortCmt)
         {
             var tour = _db.Tours
                 .Include(t => t.HinhTours)
@@ -172,8 +172,63 @@ namespace TourWebApp.Controllers
                 .Take(3)
                 .ToList();
 
-            return View(tour);
+            var binhLuansQuery = _db.BinhLuanTours
+                .Include(b => b.IdTaiKhoanNavigation)
+                .Where(b => b.IdTour == id && b.HienThi);
+
+            if (sortCmt == "old")
+                binhLuansQuery = binhLuansQuery.OrderBy(b => b.NgayBL);
+            else
+                binhLuansQuery = binhLuansQuery.OrderByDescending(b => b.NgayBL);
+
+            var binhLuans = binhLuansQuery.ToList();
+
+            ViewBag.BinhLuanTour = binhLuans;
+            ViewBag.BinhLuanCount = binhLuans.Count;
+            ViewBag.SortCmt = sortCmt;
+
+        return View(tour);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ThemBinhLuanTour(int idTour, string noiDung)
+        {
+            var idTK = HttpContext.Session.GetInt32("IdTaiKhoan");
+            if (idTK == null)
+                return RedirectToAction("DangNhap", "TaiKhoan", new
+                {
+                    returnUrl = Url.Action("ChiTiet", "Tour", new { id = idTour })
+                });
+
+            noiDung = (noiDung ?? "").Trim();
+            if (string.IsNullOrWhiteSpace(noiDung))
+                return RedirectToAction("ChiTiet", new { id = idTour });
+
+            var tk = _db.TaiKhoans.FirstOrDefault(x => x.IdTaiKhoan == idTK.Value);
+            if (tk == null)
+                return RedirectToAction("DangNhap", "TaiKhoan");
+
+            var bl = new BinhLuanTour
+            {
+                IdTour = idTour,
+                IdBaiViet = null,
+                IdTaiKhoan = idTK.Value,
+                Ten = tk.HoTen,
+                Email = tk.Email,
+                DienThoai = tk.SoDienThoai,
+                NoiDung = noiDung,
+                NgayBL = DateTime.Now,
+                HienThi = true,
+                PhanHoiAdm = null
+            };
+
+            _db.BinhLuanTours.Add(bl);
+            _db.SaveChanges();
+
+            return RedirectToAction("ChiTiet", new { id = idTour });
+        }
+        
         public IActionResult Index()
         {
             return RedirectToAction("TatCa");

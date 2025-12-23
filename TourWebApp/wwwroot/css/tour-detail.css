@@ -172,3 +172,18 @@
 .lich-selected {
     background-color: #d8e9ff !important;
 }
+.avatar-circle{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+}
+.border-primary{
+    border-left: 4px solid #0d6efd !important;
+    background: #f8fbff;
+}

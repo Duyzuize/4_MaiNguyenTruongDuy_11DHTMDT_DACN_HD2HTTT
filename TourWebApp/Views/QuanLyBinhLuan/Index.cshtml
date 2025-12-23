@@ -5,12 +5,25 @@
 }
 
 <h3 class="fw-bold mb-4">💬 Quản lý bình luận</h3>
+@{
+    var loai = (ViewBag.Loai as string) ?? "";
+}
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-3">
+        <select name="loai" class="form-select" onchange="this.form.submit()">
+            <option value="" selected="@(loai == "")">Tất cả</option>
+            <option value="tour" selected="@(loai == "tour")">Chỉ bình luận Tour</option>
+            <option value="baiviet" selected="@(loai == "baiviet")">Chỉ bình luận Bài viết</option>
+        </select>
+    </div>
+</form>
 
 <table class="table table-bordered align-middle">
     <thead class="table-dark">
         <tr>
             <th width="160">Người bình luận</th>
-            <th width="220">Bài viết</th>
+            <th width="220">Đối tượng</th>
             <th>Nội dung</th>
             <th width="120">Ngày</th>
             <th width="120">Trạng thái</th>
@@ -28,17 +41,28 @@
                     <small class="text-muted">@bl.Email</small>
                 </td>
 
-                <!-- BÀI VIẾT -->
+                <!-- ĐỐI TƯỢNG -->
                 <td>
-                    @if (bl.IdBaiVietNavigation != null)
+                    @if (bl.IdTourNavigation != null)
                     {
-                        <span>@bl.IdBaiVietNavigation.TieuDe</span>
+                        <div>
+                            <span class="badge bg-info text-dark me-1">Tour</span>
+                            <span>@bl.IdTourNavigation.TenTour</span>
+                        </div>
+                    }
+                    else if (bl.IdBaiVietNavigation != null)
+                    {
+                        <div>
+                            <span class="badge bg-secondary me-1">Bài viết</span>
+                            <span>@bl.IdBaiVietNavigation.TieuDe</span>
+                        </div>
                     }
                     else
                     {
-                        <span class="text-muted fst-italic">Không thuộc bài viết</span>
+                        <span class="text-muted fst-italic">Không xác định</span>
                     }
                 </td>
+
 
                 <!-- NỘI DUNG -->
                 <td>
@@ -76,6 +100,7 @@
                 <td>
                     <!-- ẨN / HIỆN -->
                     <form asp-action="Toggle" method="post" class="d-inline">
+                         @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@bl.IdBL" />
                         <button class="btn btn-warning btn-sm mb-1">
                             Ẩn / Hiện
@@ -95,6 +120,7 @@
             <tr class="collapse" id="reply-@bl.IdBL">
                 <td colspan="6">
                     <form asp-action="PhanHoi" method="post">
+                         @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@bl.IdBL" />
 
                         <textarea name="phanHoi"

@@ -24,24 +24,31 @@ namespace TourWebApp.Controllers
         // ======================
         // DANH SÁCH BÌNH LUẬN
         // ======================
-        public IActionResult Index()
+        public IActionResult Index(string? loai)
         {
             if (!IsAdmin())
                 return RedirectToAction("DangNhap", "TaiKhoan");
 
-            var ds = _context.BinhLuanTours
+            var query = _context.BinhLuanTours
+                .Include(x => x.IdTourNavigation)
                 .Include(x => x.IdBaiVietNavigation)
                 .Include(x => x.IdTaiKhoanNavigation)
-                .OrderByDescending(x => x.NgayBL)
-                .ToList();
+                .AsQueryable();
 
-            return View(ds);
+            if (loai == "tour") query = query.Where(x => x.IdTour != null);
+            else if (loai == "baiviet") query = query.Where(x => x.IdBaiViet != null);
+
+            ViewBag.Loai = loai;
+
+            return View(query.OrderByDescending(x => x.NgayBL).ToList());
         }
+
 
         // ======================
         // ADMIN PHẢN HỒI
         // ======================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult PhanHoi(int id, string phanHoi)
         {
             if (!IsAdmin())
@@ -50,12 +57,7 @@ namespace TourWebApp.Controllers
             var bl = _context.BinhLuanTours.FirstOrDefault(x => x.IdBL == id);
             if (bl != null)
             {
-                // ✅ Lưu phản hồi admin
                 bl.PhanHoiAdm = phanHoi;
-
-                // ✅ Tự bật hiển thị sau khi admin duyệt
-                bl.HienThi = true;
-
                 _context.SaveChanges();
             }
 
@@ -66,6 +68,7 @@ namespace TourWebApp.Controllers
         // ẨN / HIỆN BÌNH LUẬN
         // ======================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Toggle(int id)
         {
             if (!IsAdmin())

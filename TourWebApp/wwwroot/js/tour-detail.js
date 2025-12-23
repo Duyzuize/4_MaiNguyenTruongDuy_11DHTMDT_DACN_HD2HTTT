@@ -153,6 +153,21 @@ rows.forEach(row => {
         recalc();
     }
 
+    // ====== SORT BÌNH LUẬN ======
+    document.getElementById("sortComment")?.addEventListener("change", function () {
+        const url = new URL(window.location.href);
+        url.searchParams.set("sortCmt", this.value);
+        window.location.href = url.toString();
+    });
+    
+    document.querySelectorAll(".auto-grow").forEach(el => {
+    el.addEventListener("input", () => {
+        el.style.height = "auto";
+        el.style.height = el.scrollHeight + "px";
+    });
+});
+
+
 }); // END DOMContentLoaded
 
 

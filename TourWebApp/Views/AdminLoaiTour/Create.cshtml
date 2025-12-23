@@ -1,0 +1,29 @@
+@model TourWebApp.Data.Models.LoaiTour
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Thêm loại tour";
+}
+
+<h3 class="fw-bold mb-3">➕ Thêm loại tour</h3>
+
+<form asp-action="Create" method="post" class="card shadow-sm border-0">
+    <div class="card-body">
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Tên loại</label>
+            <input asp-for="TenLoai" class="form-control" placeholder="VD: Tour Biển Đảo Nam Bộ" />
+            <span asp-validation-for="TenLoai" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold">Mô tả</label>
+            <textarea asp-for="MoTa" class="form-control" rows="3"
+                      placeholder="Mô tả ngắn về loại tour..."></textarea>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary">Lưu</button>
+            <a class="btn btn-secondary" asp-action="Index">Quay lại</a>
+        </div>
+    </div>
+</form>
