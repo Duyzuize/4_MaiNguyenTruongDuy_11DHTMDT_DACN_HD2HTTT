@@ -14,10 +14,9 @@
     <span>Đang tải dữ liệu...</span>
 </div>
 
-<div class="row g-3 mb-4">
-
-    <div class="col-md-3">
-        <div class="card stat-card bg-blue text-white shadow-sm">
+<div class="row g-4 mb-3">
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-blue text-white shadow-sm h-100">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <small class="text-white-50">Tổng tour</small>
@@ -28,8 +27,8 @@
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="card stat-card bg-green text-white shadow-sm">
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-green text-white shadow-sm h-100">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <small class="text-white-50">Tour đang bán</small>
@@ -40,8 +39,8 @@
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="card stat-card bg-gray text-white shadow-sm">
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-gray text-white shadow-sm h-100">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <small class="text-white-50">Tour ngưng bán</small>
@@ -52,8 +51,8 @@
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="card stat-card bg-red text-white shadow-sm">
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-red text-white shadow-sm h-100">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <small class="text-white-50">Đơn đặt tour</small>
@@ -63,11 +62,72 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="row g-4 mb-4">
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-purple text-white shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-white-50">Tổng doanh thu</small>
+                    <h4 class="fw-bold mb-0">@string.Format("{0:N0} đ", ViewBag.TongDoanhThu ?? 0)</h4>
+                </div>
+                <i class="fa fa-sack-dollar fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-orange text-white shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-white-50">Tổng khách đã đặt</small>
+                    <h2 class="fw-bold mb-0">@(ViewBag.TongKhach ?? 0)</h2>
+                </div>
+                <i class="fa fa-user-group fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-gray text-white shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-white-50">Tổng người dùng</small>
+                    <h2 class="fw-bold mb-0">@ViewBag.TongNguoiDung</h2>
+                </div>
+                <i class="fa fa-users fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3">
+        <div class="card stat-card bg-green text-white shadow-sm h-100">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-white-50">Đơn đã thanh toán</small>
+                    <h2 class="fw-bold mb-0">@ViewBag.SoDonDaThanhToan</h2>
+                </div>
+                <i class="fa fa-circle-check fa-2x"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card shadow-sm p-3 chart-card">
+            <h6 class="fw-bold mb-3">💰 Doanh thu 14 ngày gần nhất</h6>
+            <div class="chart-wrapper chart-big">
+                <canvas id="chartDoanhThuNgay"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="row mb-4">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card shadow-sm p-3 chart-card">
             <h6 class="fw-bold mb-3">📈 Tình trạng tour</h6>
 
@@ -80,19 +140,21 @@
     </div>
 </div>
 <div class="row mb-4">
-    <!-- BIỂU ĐỒ CỘT -->
     <div class="col-md-6">
         <div class="card shadow-sm p-3 chart-card">
             <h6 class="fw-bold mb-3">📊 Đơn đặt tour theo trạng thái thanh toán</h6>
-            <canvas id="chartDonTrangThai"></canvas>
+            <div class="chart-wrapper">
+                <canvas id="chartDonTrangThai"></canvas>
+            </div>
         </div>
     </div>
 
-    <!-- BIỂU ĐỒ SÓNG -->
     <div class="col-md-6">
         <div class="card shadow-sm p-3 chart-card">
             <h6 class="fw-bold mb-3">📈 Xu hướng đặt tour theo ngày</h6>
-            <canvas id="chartDonTheoNgay"></canvas>
+            <div class="chart-wrapper">
+                <canvas id="chartDonTheoNgay"></canvas>
+            </div>
         </div>
     </div>
 </div>
@@ -141,8 +203,11 @@
     window.soDonChuaThanhToan = @ViewBag.SoDonChuaThanhToan;
     window.soDonHetHan = @ViewBag.SoDonHetHan;
 
-    window.labelNgay = @Html.Raw(Json.Serialize(ViewBag.LabelNgay));
-    window.dataNgay = @Html.Raw(Json.Serialize(ViewBag.DataNgay));
+    window.labelDoanhThuNgay = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.LabelDoanhThuNgay ?? new List<string>()));
+    window.dataDoanhThuNgay  = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.DataDoanhThuNgay ?? new List<decimal>()));
+
+    window.labelNgay = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.LabelNgay ?? new List<string>()));
+    window.dataNgay  = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.DataNgay ?? new List<int>()));
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -114,3 +114,40 @@ if (ctxDonTheoNgay) {
         }
     });
 }
+    let doanhThuChart;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById("chartDoanhThuNgay");
+    if (!el) return;
+
+    const labels = window.labelDoanhThuNgay || [];
+    const data = window.dataDoanhThuNgay || [];
+
+    if (doanhThuChart) doanhThuChart.destroy();
+
+    doanhThuChart = new Chart(el, {
+        type: "line",
+        data: {
+            labels,
+            datasets: [{
+                label: "Doanh thu (đ)",
+                data,
+                tension: 0.3,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: true } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: (value) => Number(value).toLocaleString("vi-VN") + " đ"
+                    }
+                }
+            }
+        }
+    });
+});

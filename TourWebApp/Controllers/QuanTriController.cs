@@ -68,18 +68,66 @@ namespace TourWebApp.Controllers
             );
 
           
-            var dataNgay = _context.DonDatTours
-                .GroupBy(d => d.NgayDat.Date)
-                .OrderBy(g => g.Key)
+            var dataNgayRaw = _context.DonDatTours
+                .AsNoTracking()
+                .GroupBy(d => new { d.NgayDat.Year, d.NgayDat.Month, d.NgayDat.Day })
+                .OrderBy(g => g.Key.Year)
+                .ThenBy(g => g.Key.Month)
+                .ThenBy(g => g.Key.Day)
                 .Select(g => new
                 {
-                    Ngay = g.Key.ToString("dd/MM"),
+                    g.Key.Year,
+                    g.Key.Month,
+                    g.Key.Day,
                     SoDon = g.Count()
                 })
                 .ToList();
 
+            var dataNgay = dataNgayRaw
+                .Select(x => new
+                {
+                    Ngay = new DateTime(x.Year, x.Month, x.Day).ToString("dd/MM"),
+                    x.SoDon
+                })
+                .ToList();
             ViewBag.LabelNgay = dataNgay.Select(x => x.Ngay).ToList();
             ViewBag.DataNgay = dataNgay.Select(x => x.SoDon).ToList();
+
+            var donPaid = _context.DonDatTours
+                .AsNoTracking()
+                .Where(d => d.DaThanhToan && d.TrangThai != "DaHuy" && d.TrangThai != "Đã hủy");
+
+            ViewBag.TongDoanhThu = donPaid.Sum(d => d.TongTien);
+            ViewBag.TongKhach = donPaid.Sum(d => (int?)(d.NguoiLon + d.TreEm + d.TreNho)) ?? 0;
+
+
+            var now = DateTime.Now;
+            var start14 = now.Date.AddDays(-13);
+
+           var doanhThuNgayRaw = donPaid
+                .Where(d => d.NgayDat >= start14 && d.NgayDat <= now)
+                .GroupBy(d => new { d.NgayDat.Year, d.NgayDat.Month, d.NgayDat.Day })
+                .OrderBy(g => g.Key.Year).ThenBy(g => g.Key.Month).ThenBy(g => g.Key.Day)
+                .Select(g => new
+                {
+                    g.Key.Year,
+                    g.Key.Month,
+                    g.Key.Day,
+                 DoanhThu = g.Sum(x => (decimal?)x.TongTien) ?? 0m
+                })
+                .ToList();
+
+
+            var doanhThuNgay = doanhThuNgayRaw
+                .Select(x => new
+                {
+                    Ngay = new DateTime(x.Year, x.Month, x.Day).ToString("dd/MM"),
+                    x.DoanhThu
+                })
+                .ToList();
+
+            ViewBag.LabelDoanhThuNgay = doanhThuNgay.Select(x => x.Ngay).ToList();
+            ViewBag.DataDoanhThuNgay = doanhThuNgay.Select(x => x.DoanhThu).ToList();
 
             return View();
         }
